@@ -1,0 +1,36 @@
+/* PatientList.css */
+.list-table-div {
+    background-color: #EDEDED;
+    color: #585858;
+    margin: 20px;
+  }
+  
+  .list-table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 10px;
+  }
+  
+  .list-table th, .list-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+  }
+  
+  .list-table th {
+    background-color: #B2D0FF; /* Dark gray background color */
+    color: #585858; /* White text color */
+  }
+  
+    .list-table tbody tr:nth-child(odd) {
+        background-color: #F9F9F9; /* Light gray background color */
+        cursor: pointer;
+    }
+  .list-table tbody tr:nth-child(even) {
+    background-color: #DFDFDF; /* Darker gray background color */
+    cursor: pointer;
+
+  }
+  
+  .list-table tbody tr:hover {
+    background-color: #c4c4c4; /* Even darker color on hover */
+  }

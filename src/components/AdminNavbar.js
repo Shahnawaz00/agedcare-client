@@ -1,49 +1,63 @@
 import React from 'react';
+import { Outlet, Link } from "react-router-dom";
+
 function AdminNavbar() {
     return (
         <div className="AdminNavbar">
             <div className='headings' >
-                    <h1>Aged Care</h1>
-                    <h3>User - John</h3>
-                    <button>
-                            Logout
-                    </button>
+                <h1>Aged Care</h1>
+                <h3>User - John</h3>
+                <button>
+                    Logout
+                </button>
             </div>
-            <nav>
-                    <ul>
-                            <li>
-                                    <button>
-                                            <a href="/admin">Admin Hub</a>
-                                    </button>
-                            </li>
-                            <li>
-                                    <button>
-                                            <a href="/admin/calendar">Calendar</a>
-                                    </button>
-                            </li>
-                            <li>
-                                    <button>
-                                            <a href="/admin/inventory">Inventory</a>
-                                    </button>
-                            </li>
-                            <li>
-                                    <button>
-                                            <a href="/admin/patient-list">Patient List</a>
-                                    </button>
-                            </li>
-                            <li>
-                                    <button>
-                                            <a href="/admin/service-list">Service List</a>
-                                    </button>
-                            </li>
-                            <li>
-                                    <button>
-                                            <a href="/admin/staff-list">Staff List</a>
-                                    </button>
-                            </li>
-                    </ul>
-            </nav>
 
+            <nav>
+                <ul>
+                    <li>
+                        <Link to={'/admin'}>
+                            <button>
+                                Admin Hub
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/calendar">
+                            <button>
+                                Calendar
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/inventory">
+                            <button>
+                                Inventory
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/patient-list">
+                            <button>
+                                Patient List
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/service-list">
+                            <button>
+                                Service List
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/staff-list">
+                            <button>
+                                Staff List
+                            </button>
+                        </Link>
+                    </li>
+                </ul>
+            </nav>
         </div>
     );
   }
