@@ -15,6 +15,8 @@ import StaffManagement from './pages/admin/StaffManagement';
 import ServiceManagement from './pages/admin/ServiceManagement';
 import CreateStaff from './pages/admin/CreateStaff';
 import CreateService from './pages/admin/CreateService';
+import StaffHub from './pages/staff/StaffHub';
+
 
 const router = createBrowserRouter([
     {
@@ -68,6 +70,30 @@ const router = createBrowserRouter([
     {
       path: "/admin/create-service",
       element: <CreateService />,
+    },
+    {
+      path: "/staff",
+      element: <StaffHub />,
+    },
+    {
+      path: "/staff/staff-calendar",
+      element: <div>Calendar</div>,
+    },
+    {
+      path: "/staff/staff-create-member",
+      element: <div>Create Member</div>,
+    },
+    {
+      path: "/staff/staff-patient-list",
+      element: <div>Patient List</div>,
+    },
+    {
+      path: "/staff/staff-inventory",
+      element: <div>Inventory</div>,
+    },
+    {
+      path: "/staff/staff-service-list",
+      element: <div>Service list</div>,
     },
   ]);
 
