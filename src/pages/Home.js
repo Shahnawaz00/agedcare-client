@@ -9,9 +9,6 @@ return (
         <a href="/staff">
             <button>Staff</button>
         </a>
-        <a href="/member">
-            <button>Member</button>
-        </a>
     </div>
 )
 }
