@@ -10,6 +10,11 @@ export default function MemberManagement() {
             <AdminSidebar />
             <div>
                 <h1 className='adminhub-heading' >Member Management</h1>
+                <Link to='/admin/patient-list'>
+                    <button>
+                        Member List
+                    </button>
+                </Link>
                 <Link to='/admin/create-member'>
                     <button>
                         Create new member
