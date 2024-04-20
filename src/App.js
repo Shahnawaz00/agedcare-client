@@ -3,6 +3,9 @@ import * as React from "react";
 import {
     createBrowserRouter,
     RouterProvider,
+    Routes,
+    Route,
+    BrowserRouter,
   } from "react-router-dom";
 import AdminHub from './pages/admin/AdminHub';
 import Home from './pages/Home';
@@ -11,6 +14,9 @@ import ServiceList from './pages/admin/ServiceList';
 import StaffList from './pages/admin/StaffList';
 import MemberManagement from './pages/admin/MemberManagement';
 import CreateMember from './pages/admin/CreateMember';
+import AdminLogin from './pages/login/AdminLogin';
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AuthProvider } from "./hooks/useAuth";
 
 const router = createBrowserRouter([
     {
@@ -19,7 +25,11 @@ const router = createBrowserRouter([
     },
     {
       path: "/admin",
-      element: <AdminHub />,
+      element: <ProtectedRoute><AdminHub /></ProtectedRoute>,
+    },
+    {
+      path: "/login/admin",
+      element: <AdminLogin />,
     },
     {
       path: "/admin/member-management",
@@ -54,7 +64,23 @@ const router = createBrowserRouter([
 function App() {
   return (
     <div className="App">
-        <RouterProvider router={router} />
+    <BrowserRouter>
+      <AuthProvider>
+      <Routes>
+        <Route path="/" element={<Home/>} />
+        <Route path="/login/admin" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminHub />
+            </ProtectedRoute>
+          }
+        />
+      </Routes>
+        {/* <RouterProvider router={router} /> */}
+      </AuthProvider>
+    </BrowserRouter>
     </div>
   );
 }
