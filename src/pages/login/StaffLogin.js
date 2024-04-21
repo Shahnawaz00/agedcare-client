@@ -3,23 +3,23 @@ import axios from 'axios';
 import { useAuth } from '../../hooks/useAuth';
 import '../../styles/Login.css';
 
-const Login = () => {
+const StaffLogin = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(''); // State variable for error message
-  const { adminLogin } = useAuth();
+  const { staffLogin } = useAuth();
 
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:5000/api/auth/login/admin', { email, password });
+      const response = await axios.post('http://localhost:5000/api/auth/login/staff', { email, password });
       const { token } = response.data;
 
       // Store the token in local storage
       localStorage.setItem('jwtToken', token);
 
       // Redirect to dashboard or protected route
-      await adminLogin(user);
+      await staffLogin();
 
     } catch (error) {
       console.error('Error logging in:', error.message);
@@ -29,7 +29,7 @@ const Login = () => {
 
   return (
     <div className='Login' >
-      <h2>Login</h2>
+      <h2>Staff Login</h2>
       <button onClick={() => window.history.back()}>Back</button>
       <form onSubmit={handleLogin}>
         <input
@@ -51,4 +51,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default StaffLogin;

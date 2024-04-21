@@ -7,6 +7,14 @@ import {
     Route,
     BrowserRouter,
   } from "react-router-dom";
+
+// hooks
+import { ProtectedRoute } from "./components/ProtectedRoute";
+import { AdminProtectedRoute } from './components/AdminProtectedRoute';
+import { StaffProtectedRoute } from './components/StaffProtectedRoute';
+import { AuthProvider } from "./hooks/useAuth";
+
+// pages 
 import AdminHub from './pages/admin/AdminHub';
 import Home from './pages/Home';
 import PatientList from './pages/admin/PatientList';
@@ -15,8 +23,7 @@ import StaffList from './pages/admin/StaffList';
 import MemberManagement from './pages/admin/MemberManagement';
 import CreateMember from './pages/admin/CreateMember';
 import AdminLogin from './pages/login/AdminLogin';
-import { ProtectedRoute } from "./components/ProtectedRoute";
-import { AuthProvider } from "./hooks/useAuth";
+import StaffLogin from './pages/login/StaffLogin';
 
 const router = createBrowserRouter([
     {
@@ -69,12 +76,13 @@ function App() {
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login/admin" element={<AdminLogin />} />
+        <Route path="/login/staff" element={<StaffLogin />} />
         <Route
           path="/admin"
           element={
-            <ProtectedRoute>
+            <AdminProtectedRoute>
               <AdminHub />
-            </ProtectedRoute>
+            </AdminProtectedRoute>
           }
         />
       </Routes>

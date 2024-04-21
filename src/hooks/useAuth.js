@@ -13,6 +13,16 @@ export const AuthProvider = ({ children }) => {
     navigate("/admin");
   };
 
+  const adminLogin = async (data) => {
+    setUser(data);
+    navigate("/admin");
+  };
+
+  const staffLogin = async (data) => {
+    setUser(data);
+    navigate("/staff");
+  };
+
   // call this function to sign out logged in user
   const logout = () => {
     setUser(null);
@@ -23,6 +33,8 @@ export const AuthProvider = ({ children }) => {
     () => ({
       user,
       login,
+      adminLogin,
+      staffLogin,
       logout,
     }),
     [user]
