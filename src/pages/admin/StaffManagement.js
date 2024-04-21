@@ -2,22 +2,22 @@ import React from 'react'
 import AdminNavbar from '../../components/AdminNavbar';
 import AdminSidebar from '../../components/AdminSidebar';
 import { Link } from 'react-router-dom';
-export default function MemberManagement() {
+export default function StaffManagement() {
   return (
     <div>
         <AdminNavbar />
         <div className='adminhub-content' >
             <AdminSidebar />
             <div>
-                <h1 className='adminhub-heading' >Member Management</h1>
-                <Link to='/admin/patient-list'>
+                <h1 className='adminhub-heading' >Staff Management</h1>
+                <Link to='/admin/staff-list'>
                     <button>
-                        Member List
+                        Staff List
                     </button>
                 </Link>
-                <Link to='/admin/create-member'>
+                <Link to='/admin/create-staff'>
                     <button>
-                        Create new member
+                        New Staff Member
                     </button>
                 </Link>
 
