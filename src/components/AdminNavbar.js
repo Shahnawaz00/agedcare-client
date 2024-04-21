@@ -29,7 +29,7 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/inventory-list">
+                        <Link to="/admin/inventory">
                             <button>
                                 Inventory
                             </button>

@@ -3,13 +3,17 @@ import axios from 'axios';
 import AdminNavbar from '../../components/AdminNavbar';
 // import '../../styles/CreateMember.css'; // Import CSS file
 
-export default function CreateService() {
+export default function CreateStaff() {
   const [formData, setFormData] = useState({
     name: '',
-    contactInformation: '',
-    qualifications: '',
-    role: '',
-    availability: '',
+    dateOfBirth: '',
+    gender: '',
+    emergencyContact: '',
+    nextOfKin: '',
+    mailingAddress: '',
+    allergiesOrDiet: '',
+    currentMedications: '',
+    generalPractitioner: ''
   });
 
   const handleChange = e => {
@@ -19,13 +23,13 @@ export default function CreateService() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/staffs', formData);
-      alert('Staff created successfully!');
+      await axios.post('http://localhost:5000/api/members', formData);
+      alert('Member created successfully!');
       // Optionally, redirect to another page after successful creation
     } catch (error) {
         console.log(formData);
-      console.error('Error creating staff:', error);
-      alert('Failed to create staff. Please try again.');
+      console.error('Error creating member:', error);
+      alert('Failed to create member. Please try again.');
     }
   };
 
@@ -37,10 +41,18 @@ export default function CreateService() {
         <h1>Create Staff</h1>
         <form className="create-member-form" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-          <input type="text" name="contactInformation" placeholder="Contact Information" value={formData.contactInformation} onChange={handleChange} required />
-          <input type="text" name="qualifications" placeholder="Qualifications" value={formData.qualifications} onChange={handleChange} required />
-          <input type="text" name="role" placeholder="Role" value={formData.role} onChange={handleChange} required />
-          <input type="text" name="availability" placeholder="Availability" value={formData.availability} onChange={handleChange} required />
+          <input type="date" name="dateOfBirth" placeholder="Date of Birth" value={formData.dateOfBirth} onChange={handleChange} required />
+          <select name="gender" value={formData.gender} onChange={handleChange} required>
+            <option value="">Select Gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+          <input type="text" name="emergencyContact" placeholder="Emergency Contact" value={formData.emergencyContact} onChange={handleChange} />
+          <input type="text" name="nextOfKin" placeholder="Next of Kin" value={formData.nextOfKin} onChange={handleChange} />
+          <input type="text" name="mailingAddress" placeholder="Mailing Address" value={formData.mailingAddress} onChange={handleChange} />
+          <input type="text" name="allergiesOrDiet" placeholder="Allergies/Diet" value={formData.allergiesOrDiet} onChange={handleChange} />
+          <input type="text" name="currentMedications" placeholder="Current Medications" value={formData.currentMedications} onChange={handleChange} />
+          <input type="text" name="generalPractitioner" placeholder="General Practitioner" value={formData.generalPractitioner} onChange={handleChange} />
           <button type="submit">Create Staff</button>
         </form>
       </div>
