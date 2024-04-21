@@ -13,13 +13,13 @@ const StaffLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login/staff', { email, password });
-      const { token } = response.data;
+      const { token, user } = response.data;
 
       // Store the token in local storage
       localStorage.setItem('jwtToken', token);
 
       // Redirect to dashboard or protected route
-      await staffLogin();
+      await staffLogin(user);
 
     } catch (error) {
       console.error('Error logging in:', error.message);

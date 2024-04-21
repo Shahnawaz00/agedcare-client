@@ -20,6 +20,7 @@ import Home from './pages/Home';
 import PatientList from './pages/admin/PatientList';
 import ServiceList from './pages/admin/ServiceList';
 import StaffList from './pages/admin/StaffList';
+import InventoryList from './pages/admin/InventoryList';
 import MemberManagement from './pages/admin/MemberManagement';
 import CreateMember from './pages/admin/CreateMember';
 
@@ -127,10 +128,24 @@ function App() {
     <div className="App">
     <BrowserRouter>
       <AuthProvider>
+
       <Routes>
         <Route path="/" element={<Home/>} />
         <Route path="/login/admin" element={<AdminLogin />} />
         <Route path="/login/staff" element={<StaffLogin />} />
+
+        {/* Admin Routes */}
+        <Route path="/admin/member-management" element={<AdminProtectedRoute><MemberManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/create-member" element={<AdminProtectedRoute><CreateMember /></AdminProtectedRoute>} />
+        <Route path="/admin/calendar" element={<AdminProtectedRoute><div>Calendar</div></AdminProtectedRoute>} />
+        <Route path="/admin/inventory-list" element={<AdminProtectedRoute><InventoryList/></AdminProtectedRoute>} />
+        <Route path="/admin/patient-list" element={<AdminProtectedRoute><PatientList /></AdminProtectedRoute>} />
+        <Route path="/admin/service-list" element={<AdminProtectedRoute><ServiceList /></AdminProtectedRoute>} />
+        <Route path="/admin/staff-list" element={<AdminProtectedRoute><StaffList /></AdminProtectedRoute>} />
+        <Route path="/admin/staff-management" element={<AdminProtectedRoute><StaffManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/create-staff" element={<AdminProtectedRoute><CreateStaff /></AdminProtectedRoute>} />
+        <Route path="/admin/service-management" element={<AdminProtectedRoute><ServiceManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/create-service" element={<AdminProtectedRoute><CreateService /></AdminProtectedRoute>} />
         <Route
           path="/admin"
           element={
@@ -139,6 +154,15 @@ function App() {
             </AdminProtectedRoute>
           }
         />
+
+        {/* Staff Routes */}
+        <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-calendar" element={<StaffProtectedRoute><StaffCalendar /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-create-member" element={<StaffProtectedRoute><div>Create Member</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute><div>Patient List</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-inventory" element={<StaffProtectedRoute><div>Inventory</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><div>Service list</div></StaffProtectedRoute>} />
+        <Route path="/staff/create-appointment" element={<StaffProtectedRoute><CreateAppointment /></StaffProtectedRoute>} />
       </Routes>
         {/* <RouterProvider router={router} /> */}
       </AuthProvider>

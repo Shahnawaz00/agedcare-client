@@ -1,19 +1,16 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../components/AdminNavbar';
-// import '../../styles/CreateMember.css'; // Import CSS file
 
 export default function CreateStaff() {
   const [formData, setFormData] = useState({
     name: '',
-    dateOfBirth: '',
-    gender: '',
-    emergencyContact: '',
-    nextOfKin: '',
-    mailingAddress: '',
-    allergiesOrDiet: '',
-    currentMedications: '',
-    generalPractitioner: ''
+    email: '',
+    password: '',
+    contactInformation: '',
+    qualifications: '',
+    role: '',
+    availability: ''
   });
 
   const handleChange = e => {
@@ -23,36 +20,29 @@ export default function CreateStaff() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/members', formData);
-      alert('Member created successfully!');
+      await axios.post('http://localhost:5000/api/staff', formData);
+      alert('Staff created successfully!');
       // Optionally, redirect to another page after successful creation
     } catch (error) {
-        console.log(formData);
-      console.error('Error creating member:', error);
-      alert('Failed to create member. Please try again.');
+      console.error('Error creating staff:', error);
+      alert('Failed to create staff. Please try again.');
     }
   };
 
   return (
-    <div className='CreateMember' >
+    <div className='createUser' >
       <AdminNavbar />
       <button className='back-button' onClick={() => window.history.back()}>Back</button>
-      <div className="create-member-container">
+      <div className="create-user-container">
         <h1>Create Staff</h1>
-        <form className="create-member-form" onSubmit={handleSubmit}>
+        <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
-          <input type="date" name="dateOfBirth" placeholder="Date of Birth" value={formData.dateOfBirth} onChange={handleChange} required />
-          <select name="gender" value={formData.gender} onChange={handleChange} required>
-            <option value="">Select Gender</option>
-            <option value="Male">Male</option>
-            <option value="Female">Female</option>
-          </select>
-          <input type="text" name="emergencyContact" placeholder="Emergency Contact" value={formData.emergencyContact} onChange={handleChange} />
-          <input type="text" name="nextOfKin" placeholder="Next of Kin" value={formData.nextOfKin} onChange={handleChange} />
-          <input type="text" name="mailingAddress" placeholder="Mailing Address" value={formData.mailingAddress} onChange={handleChange} />
-          <input type="text" name="allergiesOrDiet" placeholder="Allergies/Diet" value={formData.allergiesOrDiet} onChange={handleChange} />
-          <input type="text" name="currentMedications" placeholder="Current Medications" value={formData.currentMedications} onChange={handleChange} />
-          <input type="text" name="generalPractitioner" placeholder="General Practitioner" value={formData.generalPractitioner} onChange={handleChange} />
+          <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} required />
+          <input type="text" name="contactInformation" placeholder="Contact Information" value={formData.contactInformation} onChange={handleChange} required />
+          <input type="text" name="qualifications" placeholder="Qualifications" value={formData.qualifications} onChange={handleChange} required />
+          <input type="text" name="role" placeholder="Role" value={formData.role} onChange={handleChange} required />
+          <input type="text" name="availability" placeholder="Availability" value={formData.availability} onChange={handleChange} required />
           <button type="submit">Create Staff</button>
         </form>
       </div>

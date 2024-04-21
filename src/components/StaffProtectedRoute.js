@@ -12,6 +12,7 @@ export const StaffProtectedRoute = ({ children }) => {
     // Check if the user belongs to Staff model
     if (user.staff_id !== undefined) {
       // User is staff, allow access
+      console.log("StaffProtectedRoute: user", user)
       return children;
     }
   

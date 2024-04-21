@@ -67,14 +67,14 @@ body {
   color: #1D3D6F;
 }
 
-.create-member-form {
+.create-user-form {
   width: 50%;
   margin: auto;
 }
 
-.create-member-form input[type="text"],
-.create-member-form input[type="date"],
-.create-member-form select {
+.create-user-form input[type="text"],
+.create-user-form input[type="date"],
+.create-user-form select {
   width: 100%;
   margin-bottom: 10px;
   padding: 8px;
@@ -83,7 +83,7 @@ body {
   box-sizing: border-box;
 }
 
-.create-member-form button {
+.create-user-form button {
   width: 100%;
   padding: 10px;
   background-color: #4D8FD9;
@@ -93,7 +93,7 @@ body {
   cursor: pointer;
 }
 
-.create-member-form button:hover {
+.create-user-form button:hover {
   background-color: #0056b3;
 }
 

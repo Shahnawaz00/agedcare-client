@@ -3,7 +3,7 @@ import { Outlet, Link } from "react-router-dom";
 import { useAuth } from '../hooks/useAuth';
 
 function AdminNavbar() {
-    const { logout } = useAuth();
+    const { logout, user } = useAuth();
     const handleLogout = () => {
         logout();
     }
@@ -11,7 +11,7 @@ function AdminNavbar() {
         <div className="AdminNavbar">
             <div className='headings' >
                 <h1>Aged Care</h1>
-                <h3>User - John</h3>
+                <h3>User - {user.name}</h3>
                 <button onClick={handleLogout} >
                     Logout
                 </button>
@@ -34,9 +34,9 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/inventory">
+                        <Link to="/admin/inventory-list">
                             <button>
-                                Inventory
+                                Inventory List
                             </button>
                         </Link>
                     </li>

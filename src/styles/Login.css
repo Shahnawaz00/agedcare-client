@@ -1,6 +1,6 @@
 .Login {
     max-width: 400px;
-    margin: 0 auto;
+    margin: 100px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -11,6 +11,7 @@
     margin-bottom: 20px;
     font-size: 24px;
     text-align: center;
+    color: #1D3D6F;
   }
   
   .Login form {
@@ -27,7 +28,8 @@
   
   .Login button {
     padding: 10px;
-    background-color: #007bff;
+    margin-bottom: 20px ;
+    background-color: #1D3D6F;
     color: #fff;
     border: none;
     border-radius: 5px;

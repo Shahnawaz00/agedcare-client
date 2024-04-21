@@ -34,12 +34,12 @@ export default function CreateMember() {
   };
 
   return (
-    <div className='CreateMember' >
+    <div className='CreateUser' >
       <AdminNavbar />
       <button className='back-button' onClick={() => window.history.back()}>Back</button>
-      <div className="create-member-container">
+      <div className="create-user-container">
         <h1>Create Member</h1>
-        <form className="create-member-form" onSubmit={handleSubmit}>
+        <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
           <input type="date" name="dateOfBirth" placeholder="Date of Birth" value={formData.dateOfBirth} onChange={handleChange} required />
           <select name="gender" value={formData.gender} onChange={handleChange} required>

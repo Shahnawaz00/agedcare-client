@@ -33,7 +33,7 @@ export default function CreateMedication() {
       <button className='back-button' onClick={() => window.history.back()}>Back</button>
       <div className="create-member-container">
         <h1>Create Inventory</h1>
-        <form className="create-member-form" onSubmit={handleSubmit}>
+        <form className="create-user-form" onSubmit={handleSubmit}>
           <select name="medicationId" value={formData.medicationId} onChange={handleChange} required>
             <option value="">Select Medication</option>
           </select>

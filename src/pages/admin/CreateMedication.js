@@ -34,7 +34,7 @@ export default function CreateMedication() {
       <button className='back-button' onClick={() => window.history.back()}>Back</button>
       <div className="create-member-container">
         <h1>Create Medication</h1>
-        <form className="create-member-form" onSubmit={handleSubmit}>
+        <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="medicationName" placeholder="Medication Name" value={formData.medicationName} onChange={handleChange} required />
           <input type="text" name="dosageForm" placeholder="Dosage Form" value={formData.dosageForm} onChange={handleChange} required />
           <input type="number" name="quantityOnHand" placeholder="Quantity on Hand" value={formData.quantityOnHand} onChange={handleChange} required />

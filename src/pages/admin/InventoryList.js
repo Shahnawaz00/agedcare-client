@@ -19,6 +19,11 @@ export default function InventoryList() {
     fetchInventory();
   }, []);
 
+   // Function to convert SQL datetime format to a readable date
+   const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
   return (
     <div>
       <AdminNavbar />
@@ -28,7 +33,7 @@ export default function InventoryList() {
           <thead>
             <tr>
               <th>Inventory ID</th>
-              <th>Medication Name</th>
+              <th>Name</th>
               <th>Quantity</th>
               <th>Last Restocked</th>
             </tr>
@@ -37,9 +42,9 @@ export default function InventoryList() {
             {inventory.map(item => (
               <tr key={item.inventory_id}>
                 <td>{item.inventory_id}</td>
-                <td>{item.medication ? item.medication.medication_name : 'N/A'}</td>
+                <td>{item.name}</td> {/* Adjusted from item.medication.medication_name to item.name */}
                 <td>{item.quantity}</td>
-                <td>{item.last_restocked}</td>
+                <td>{formatDate(item.last_restocked)}</td>
               </tr>
             ))}
           </tbody>

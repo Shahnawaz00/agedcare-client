@@ -1,13 +1,15 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import '../styles/Home.css'
 
 function Home() {
 return (
-    <div>
+    <div className='Home'>
+        <h1>Aged Care</h1>
         <Link to="/login/admin">
             <button>Admin</button>
         </Link>
-        <Link to="/staff">
+        <Link to="/login/staff">
             <button>Staff</button>
         </Link>
     </div>

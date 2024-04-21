@@ -13,7 +13,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/auth/login/admin', { email, password });
-      const { token } = response.data;
+      const { token, user } = response.data;
 
       // Store the token in local storage
       localStorage.setItem('jwtToken', token);
@@ -29,8 +29,8 @@ const Login = () => {
 
   return (
     <div className='Login' >
-      <h2>Login</h2>
       <button onClick={() => window.history.back()}>Back</button>
+      <h2>Login</h2>
       <form onSubmit={handleLogin}>
         <input
           type="email"
