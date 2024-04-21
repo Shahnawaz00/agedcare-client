@@ -1,13 +1,18 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
+import { useAuth } from '../hooks/useAuth';
 
 function AdminNavbar() {
+    const { logout } = useAuth();
+    const handleLogout = () => {
+        logout();
+    }
     return (
         <div className="AdminNavbar">
             <div className='headings' >
                 <h1>Aged Care</h1>
                 <h3>User - John</h3>
-                <button>
+                <button onClick={handleLogout} >
                     Logout
                 </button>
             </div>

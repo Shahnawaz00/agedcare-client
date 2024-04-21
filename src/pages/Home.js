@@ -1,14 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 function Home() {
 return (
     <div>
-        <a href="/admin">
+        <Link to="/login/admin">
             <button>Admin</button>
-        </a>
-        <a href="/staff">
+        </Link>
+        <Link to="/staff">
             <button>Staff</button>
-        </a>
+        </Link>
     </div>
 )
 }
