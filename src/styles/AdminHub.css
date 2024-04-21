@@ -74,6 +74,8 @@ body {
 
 .create-member-form input[type="text"],
 .create-member-form input[type="date"],
+.create-member-form textarea,
+.create-member-form input[type="number"],
 .create-member-form select {
   width: 100%;
   margin-bottom: 10px;

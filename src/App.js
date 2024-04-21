@@ -17,7 +17,11 @@ import CreateStaff from './pages/admin/CreateStaff';
 import CreateService from './pages/admin/CreateService';
 import StaffHub from './pages/staff/StaffHub';
 import StaffCalendar from './pages/staff/StaffCalendar';
-
+import InventoryManagement from './pages/admin/InventoryManagement';
+import CreateInventory from './pages/admin/CreateInventory';
+import InventoryList from './pages/admin/InventoryList';
+import CreateMedication from './pages/admin/CreateMedication';
+import MedicationList from './pages/admin/MedicationList';
 
 const router = createBrowserRouter([
     {
@@ -95,6 +99,26 @@ const router = createBrowserRouter([
     {
       path: "/staff/staff-service-list",
       element: <div>Service list</div>,
+    },
+    {
+      path: "/admin/inventory-management",
+      element: <InventoryManagement />,
+    },
+    {
+      path: "/admin/create-inventory",
+      element: <CreateInventory />,
+    },
+    {
+      path: "/admin/inventory-list",
+      element: <InventoryList />,
+    },
+    {
+      path: "/admin/create-medication",
+      element: <CreateMedication />,
+    },
+    {
+      path: "/admin/medication-list",
+      element: <MedicationList />,
     },
   ]);
 
