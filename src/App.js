@@ -16,6 +16,7 @@ import ServiceManagement from './pages/admin/ServiceManagement';
 import CreateStaff from './pages/admin/CreateStaff';
 import CreateService from './pages/admin/CreateService';
 import StaffHub from './pages/staff/StaffHub';
+import StaffCalendar from './pages/staff/StaffCalendar';
 
 
 const router = createBrowserRouter([
@@ -77,7 +78,7 @@ const router = createBrowserRouter([
     },
     {
       path: "/staff/staff-calendar",
-      element: <div>Calendar</div>,
+      element: <StaffCalendar />,
     },
     {
       path: "/staff/staff-create-member",
