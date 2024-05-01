@@ -4,82 +4,57 @@ import '../../styles/styles.css';
 import AdminNavbar from '../../components/admin/AdminNavbar';
 import AdminSidebar from '../../components/admin/AdminManagementSidebar';
 
-export default function InventoryList() {
-  const [inventory, setInventory] = useState([]);
-  const [medications, setMedications] = useState([]);
+export default function AdminList() {
+  const [admins, setAdmins] = useState([]);
 
   useEffect(() => {
-    fetchInventory();
-    fetchMedications();
+    fetchAdmins();
   }, []);
 
-  const fetchInventory = async () => {
+  const fetchAdmins = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/inventory');
-      setInventory(response.data);
+      const response = await axios.get('http://localhost:5000/api/admin');
+      setAdmins(response.data);
     } catch (error) {
-      console.error('Error fetching inventory:', error);
+      console.error('Error fetching admins:', error);
     }
   };
 
-  const fetchMedications = async () => {
+  const deleteAdmin = async (admin_id) => {
     try {
-      const response = await axios.get('http://localhost:5000/api/medication');
-      setMedications(response.data); // Store medications in state
+      await axios.delete(`http://localhost:5000/api/admin/${admin_id}`);
+      alert('Admin deleted successfully!');
+      fetchAdmins();  // Refresh the list after deletion
     } catch (error) {
-      console.error('Error fetching medications:', error);
+      console.error('Error deleting admin:', error);
+      alert('Failed to delete admin. Please try again.');
     }
   };
 
-  const deleteInventory = async (inventoryId) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/inventory/${inventoryId}`);
-      alert('Inventory item deleted successfully!');
-      fetchInventory();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting inventory item:', error);
-      alert('Failed to delete inventory item. Please try again.');
-    }
-  };
-
-  // Function to convert SQL datetime format to a readable date
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    return date.toLocaleDateString();
-  };
-
-  // Helper function to find medication name by ID
-  const getMedicationName = (medicationId) => {
-    const medication = medications.find(med => med.medication_id === medicationId);
-    return medication ? medication.medication_name : 'Unknown';
-  };
-
-  return (
+  return (  
     <div>
       <AdminNavbar />
-      <div className='adminhub-content' >
+      <div className='adminhub-content'>
         <AdminSidebar />
         <div className="list-table-div">
-          <h2>Inventory List</h2>
+          <h2>Admin List</h2>
           <table className="list-table">
             <thead>
               <tr>
-                <th>Inventory ID</th>
-                <th>Medication Name</th>
-                <th>Quantity</th>
-                <th>Last Restocked</th>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
                 <th>Delete</th>
               </tr>
             </thead>
             <tbody>
-              {inventory.map(item => (
-                <tr key={item.inventory_id}>
-                  <td>{item.inventory_id}</td>
-                  <td>{getMedicationName(item.medication_id)}</td>
-                  <td>{item.quantity}</td>
-                  <td>{formatDate(item.last_restocked)}</td>
+              {admins.map(admin => (
+                <tr key={admin.admin_id}>
+                  <td>{admin.admin_id}</td>
+                  <td>{admin.name}</td>
+                  <td>{admin.email}</td>
                   <td>
-                    <button onClick={() => deleteInventory(item.inventory_id)}>Delete</button>
+                    <button onClick={() => deleteAdmin(admin.admin_id)}>Delete</button>
                   </td>
                 </tr>
               ))}

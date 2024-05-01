@@ -15,7 +15,7 @@ import StaffLogin from './pages/login/StaffLogin';
 
 // Admin pages 
 import AdminHub from './pages/admin/AdminHub';
-import FacilityManagement from './pages/admin/ServiceManagement';
+import FacilityManagement from './pages/admin/FacilityManagement';
 import ServiceManagement from './pages/admin/ServiceManagement';
 import InventoryManagement from './pages/admin/InventoryManagement';
 import MemberManagement from './pages/admin/MemberManagement';
