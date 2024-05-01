@@ -8,17 +8,29 @@ export default function ServiceList() {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    const fetchServices = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/services'); // Update endpoint to fetch service data
-        setServices(response.data);
-      } catch (error) {
-        console.error('Error fetching service list:', error);
-      }
-    };
-
     fetchServices();
-  }, []); // Empty dependency array ensures the effect runs only once on component mount
+  }, []);
+
+  const fetchServices = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/api/services');
+      setServices(response.data);
+    } catch (error) {
+      console.error('Error fetching service list:', error);
+    }
+  };
+
+  const deleteService = async (serviceId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/services/${serviceId}`);
+      alert('Service deleted successfully!');
+      fetchServices();  // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting service:', error);
+      alert('Failed to delete service. Please try again.');
+    }
+  };
+
 
   return (
     <div>
@@ -33,6 +45,8 @@ export default function ServiceList() {
               <th>Service Type</th>
               <th>Duration</th>
               <th>Description</th>
+              <th>Delete</th>
+
             </tr>
           </thead>
           <tbody>
@@ -41,6 +55,9 @@ export default function ServiceList() {
                 <td>{service.service_type}</td>
                 <td>{service.duration}</td>
                 <td>{service.description}</td>
+                <td>
+                    <button onClick={() => deleteService(service.service_id)}>Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>
