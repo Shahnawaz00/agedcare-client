@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/ServiceManagementSidebar';
+
 import '../../styles/styles.css';
 
 export default function CreateService() {
@@ -29,7 +31,11 @@ export default function CreateService() {
   return (
     <div className='createService' >
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+
+      <div className='adminhub-content' >
+      <AdminSidebar />
+
+
       <div className="create-user-container">
         <h1>Create Service</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -38,6 +44,7 @@ export default function CreateService() {
           <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
           <button type="submit">Create Service</button>
         </form>
+      </div>
       </div>
     </div>
   );

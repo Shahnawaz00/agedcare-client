@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/styles.css';
-import StaffNavbar from '../../components/StaffNavbar';
-import StaffSidebar from '../../components/StaffSidebar';
+import StaffNavbar from '../../components/staff/StaffNavbar';
+import StaffSidebar from '../../components/staff/StaffSidebar';
 
 function StaffHub() {
     return (

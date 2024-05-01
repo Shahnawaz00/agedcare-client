@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles/styles.css'; // Assume similar CSS styles as PatientList.css
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/InventoryManagementSidebar';
 
 export default function InventoryList() {
   const [inventory, setInventory] = useState([]);
@@ -27,6 +28,8 @@ export default function InventoryList() {
   return (
     <div>
       <AdminNavbar />
+      <div className='adminhub-content' >
+        <AdminSidebar />
       <div className="list-table-div">
         <h2>Inventory List</h2>
         <table className="list-table">
@@ -49,6 +52,7 @@ export default function InventoryList() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );

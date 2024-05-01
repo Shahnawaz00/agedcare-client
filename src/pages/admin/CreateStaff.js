@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/StaffManagementSidebar';
 
 export default function CreateStaff() {
   const [formData, setFormData] = useState({
@@ -32,7 +33,8 @@ export default function CreateStaff() {
   return (
     <div className='createUser' >
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+      <div className='adminhub-content' >
+      <AdminSidebar />
       <div className="create-user-container">
         <h1>Create Staff</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -45,6 +47,7 @@ export default function CreateStaff() {
           <input type="text" name="availability" placeholder="Availability" value={formData.availability} onChange={handleChange} required />
           <button type="submit">Create Staff</button>
         </form>
+      </div>
       </div>
     </div>
   );

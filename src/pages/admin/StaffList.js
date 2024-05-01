@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles/styles.css';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/StaffManagementSidebar';
 
 export default function StaffList() {
   const [staffList, setStaffList] = useState([]);
@@ -22,6 +23,10 @@ export default function StaffList() {
   return (
     <div>
       <AdminNavbar />
+
+      <div className='adminhub-content' >
+
+      <AdminSidebar />
       <div className="list-table-div">
         <h2>Staff List</h2>
         <table className="list-table">
@@ -46,6 +51,7 @@ export default function StaffList() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );

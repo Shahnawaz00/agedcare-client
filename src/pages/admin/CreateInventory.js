@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
 import '../../styles/styles.css'; // Import CSS file
+import AdminSidebar from '../../components/admin/InventoryManagementSidebar';
 
 export default function CreateMedication() {
   const [formData, setFormData] = useState({
@@ -30,7 +31,8 @@ export default function CreateMedication() {
   return (
     <div className='CreateMember'>
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+        <div className='adminhub-content' >
+        <AdminSidebar />
       <div className="create-member-container">
         <h1>Create Inventory</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -41,6 +43,7 @@ export default function CreateMedication() {
           <input type="date" name="lastRestocked" placeholder="Last Restocked" value={formData.lastRestocked} onChange={handleChange} required />
           <button type="submit">Add Inventory</button>
         </form>
+      </div>
       </div>
     </div>
   );

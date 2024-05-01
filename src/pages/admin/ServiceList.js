@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles/styles.css';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/ServiceManagementSidebar';
 
 export default function ServiceList() {
   const [services, setServices] = useState([]);
@@ -22,6 +23,8 @@ export default function ServiceList() {
   return (
     <div>
       <AdminNavbar />
+      <div className='adminhub-content' >
+      <AdminSidebar />
       <div className="list-table-div">
         <h2>Service List</h2>
         <table className="list-table">
@@ -42,6 +45,7 @@ export default function ServiceList() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );

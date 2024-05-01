@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import '../../styles/styles.css'; 
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/InventoryManagementSidebar';
 
 export default function MedicationList() {
   const [medications, setMedications] = useState([]);
@@ -22,6 +23,8 @@ export default function MedicationList() {
   return (
     <div>
       <AdminNavbar />
+      <div className='adminhub-content' >
+        <AdminSidebar />
       <div className="list-table-div">
         <h2>Medication List</h2>
         <table className="list-table">
@@ -42,6 +45,7 @@ export default function MedicationList() {
             ))}
           </tbody>
         </table>
+      </div>
       </div>
     </div>
   );

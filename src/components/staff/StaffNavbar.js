@@ -1,18 +1,18 @@
 import React from 'react';
 import { Outlet, Link } from "react-router-dom";
-import { useAuth } from '../hooks/useAuth';
+import { useAuth } from '../../hooks/useAuth';
 
-function AdminNavbar() {
+function StaffNavbar() {
     const { logout, user } = useAuth();
     const handleLogout = () => {
         logout();
     }
     return (
-        <div className="AdminNavbar">
+        <div className="StaffNavbar">
             <div className='headings' >
                 <h1>Aged Care</h1>
                 <h3>User - {user.name}</h3>
-                <button onClick={handleLogout} >
+                <button onClick={handleLogout}>
                     Logout
                 </button>
             </div>
@@ -20,44 +20,37 @@ function AdminNavbar() {
             <nav>
                 <ul>
                     <li>
-                        <Link to={'/admin'}>
+                        <Link to={'/staff'}>
                             <button>
-                                Admin Hub
+                                Staff Hub
                             </button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/calendar">
+                        <Link to="/staff/staff-calendar">
                             <button>
                                 Calendar
                             </button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/inventory-list">
+                        <Link to="/staff/staff-inventory">
                             <button>
-                                Inventory List
+                                Inventory
                             </button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/patient-list">
+                        <Link to="/staff/staff-patient-list">
                             <button>
                                 Patient List
                             </button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/service-list">
+                        <Link to="/staff/staff-service-list">
                             <button>
                                 Service List
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/staff-list">
-                            <button>
-                                Staff List
                             </button>
                         </Link>
                     </li>
@@ -67,4 +60,4 @@ function AdminNavbar() {
     );
   }
   
-  export default AdminNavbar;
+  export default StaffNavbar;
