@@ -4,14 +4,14 @@ import { Link } from "react-router-dom";
 export default function AdminSidebar() {
   return (
     <div className='admin-hub-sidebar' >
-    <Link to='/admin/admin-list'>
+     <Link to='/admin/facility-list'>
                     <button>
-                        Admin List
+                        Facility List
                     </button>
                 </Link>
-                <Link to='/admin/create-admin'>
+                <Link to='/admin/create-facility'>
                     <button>
-                        New Admin
+                        Create Facility
                     </button>
                 </Link>
 </div>

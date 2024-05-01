@@ -61,6 +61,13 @@ function AdminNavbar() {
                             </button>
                         </Link>
                     </li>
+                    <li>
+                        <Link to="/admin/facility-management">
+                            <button>
+                                Facility Management
+                            </button>
+                        </Link>
+                    </li>
                 </ul>
             </nav>
         </div>
