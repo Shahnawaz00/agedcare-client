@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/AdminHub.css';
+import '../../styles/styles.css';
 import AdminNavbar from '../../components/AdminNavbar';
 import AdminSidebar from '../../components/AdminSidebar';
 

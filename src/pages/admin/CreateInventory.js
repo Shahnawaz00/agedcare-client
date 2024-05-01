@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../components/AdminNavbar';
-// import '../../styles/CreateMember.css'; // Import CSS file
+import '../../styles/styles.css'; // Import CSS file
 
 export default function CreateMedication() {
   const [formData, setFormData] = useState({

@@ -149,9 +149,9 @@ function App() {
         <Route
           path="/admin"
           element={
-            <AdminProtectedRoute>
+           
               <AdminHub />
-            </AdminProtectedRoute>
+           
           }
         />
 

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../components/AdminNavbar';
-import '../../styles/AdminHub.css';
+import '../../styles/styles.css';
 
 export default function CreateService() {
   const [formData, setFormData] = useState({

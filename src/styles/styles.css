@@ -1,16 +1,494 @@
+/* Admin Hub Styles */
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Lato', Arial, sans-serif;
-  background-color: #f3f9ff;
+  font-family: Arial, sans-serif;
+  color: #F9F9F9;
+  background-color: #EDEDED;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', Arial, sans-serif;
+.adminhub-content {
+display: flex;
+margin: 20px;
+
 }
+.adminhub-content h1 {
+margin: 20px;
+color: #1D3D6F;
+}
+.adminhub-content button {
+padding: 40px;
+margin: 20px;
+font-size: 16px;
+font-weight: bold;
+background-color: #78AAF4;
+margin-top:20px ;
+
+}
+.admin-hub-sidebar {
+display: flex;
+flex-direction: column;
+background-color: #C9DEFF;
+margin: 20px;
+padding: 20px;
+width: 20%;
+border-radius: 10px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box-shadow property */  
+height: 70vh;
+}
+
+.admin-hub-sidebar button { 
+padding: 50px;
+font-size: 16px;
+font-weight: bold;
+background-color: #214274;
+margin-top:20px ;
+}
+
+
+/* create member  */
+.back-button {
+background-color: #4D8FD9;
+color: #fff;
+border: none;
+padding: 10px 20px;
+margin: 20px;
+cursor: pointer;
+border-radius: 4px;
+
+}
+.create-user-container {
+margin: 20px;
+display: flex ;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+}
+.create-user-container h1 {
+color: #1D3D6F;
+}
+
+.create-user-form {
+width: 50%;
+margin: auto;
+}
+
+.create-user-form textarea,
+.create-user-form input[type="text"],
+.create-user-form input[type="email"],
+.create-user-form input[type="password"],
+.create-user-form input[type="date"],
+.create-user-form select {
+width: 100%;
+margin-bottom: 10px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.create-user-form button {
+width: 100%;
+padding: 10px;
+background-color: #4D8FD9;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.create-user-form button:hover {
+background-color: #0056b3;
+}
+
+/* admin navbar  */
+.AdminNavbar {
+  background-color: #6695DB;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #6695DB;
+}
+
 li {
   list-style-type: none;
 }
 a {
   text-decoration: none;
+  color: #F9F9F9;
+}
+nav {
+ background-color: #3B6199;
+ margin: 0;
+  padding: 0;
+}
+ul {
+  display: flex;
+  padding: 0;
+}
+
+button {
+  background-color: #1D3D6F;
+  color: #F9F9F9;
+  border: none;
+  padding: 10px 40px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 20px; /* Added border-radius property */
+}
+
+button:hover {
+  background-color: #7794BF;
+
+}
+/* Home Page Styles */
+.Home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px; /* Added margin */
+}
+
+.Home h1 {
+  font-size: 60px; /* Increased font size */
+  margin-bottom: 40px;
+  margin-top: 0; /* Move h1 to the very top */
+  color: #1D3D6F;
+}
+
+.Home button {
+  padding: 25px 50px; /* Increased padding */
+  margin: 40px; /* Increased margin */
+  font-size: 30px; /* Increased font size */
+  background-color: #0056b3;
+  color: #fff;
+  border: none;
+  border-radius: 15px; /* Increased border radius */
+  cursor: pointer;
+}
+
+.Home button:hover {
+  background-color: #1D3D6F;
+}
+
+.Home button:last-child {
+  margin-bottom: 0;
+}
+
+/* Login Page Styles */
+.Login {
+  max-width: 400px;
+  margin: 100px auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+.Login h2 {
+  margin-bottom: 20px;
+  font-size: 24px;
+  text-align: center;
+  color: #1D3D6F;
+}
+
+.Login form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Login input {
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.Login button {
+  padding: 10px;
+  margin-bottom: 20px ;
+  background-color: #1D3D6F;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.Login button:hover {
+  background-color: #0056b3;
+}
+
+.Login p {
+  margin-top: 10px;
+  color: red;
+}
+
+/* Navigation Bar Styles */
+.navbar {
+  background-color: #cee9ff;
+  color: rgb(255, 255, 255);
+  padding: 15px 20px;
+}
+
+.navbar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar ul li {
+  display: inline;
+  margin-right: 20px;
+}
+
+.navbar ul li a {
+  color: rgb(255, 255, 255);
+  text-decoration: none;
+}
+
+.navbar ul li a:hover {
+  text-decoration: underline;
+}
+
+.sidebar {
+  width: 50px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #333;
+  transition: width 0.3s ease;
+  overflow: hidden;
+}
+
+.sidebar.open {
+  width: 250px;
+}
+
+.toggle-button {
+  background-color: #555;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  width: 100%;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  padding: 10px;
+  color: #fff;
+  cursor: pointer;
+}
+
+li:hover {
+  background-color: #555;
+}
+
+/* Patient List Styles */
+/* PatientList.css */
+.list-table-div {
+  background-color: #EDEDED;
+  color: #585858;
+  margin: 20px;
+}
+
+.list-table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 10px;
+}
+
+.list-table th, .list-table td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+.list-table th {
+  background-color: #B2D0FF; /* Dark gray background color */
+  color: #585858; /* White text color */
+}
+
+  .list-table tbody tr:nth-child(odd) {
+      background-color: #F9F9F9; /* Light gray background color */
+      cursor: pointer;
+  }
+.list-table tbody tr:nth-child(even) {
+  background-color: #DFDFDF; /* Darker gray background color */
+  cursor: pointer;
+
+}
+
+.list-table tbody tr:hover {
+  background-color: #c4c4c4; /* Even darker color on hover */
+}
+/* Staff Hub Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  color: #F9F9F9;
+  background-color: #EDEDED;
+}
+
+.staffhub-content {
+display: flex;
+margin: 20px;
+
+}
+.staffhub-content h1 {
+margin: 20px;
+color: #1D3D6F;
+}
+.staffhub-content button {
+padding: 40px;
+margin: 20px;
+font-size: 16px;
+font-weight: bold;
+background-color: #78AAF4;
+margin-top:20px ;
+
+}
+.staff-hub-sidebar {
+display: flex;
+flex-direction: column;
+background-color: #C9DEFF;
+margin: 20px;
+padding: 20px;
+width: 20%;
+border-radius: 10px;
+box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Added box-shadow property */  
+height: 70vh;
+}
+
+.staff-hub-sidebar button { 
+padding: 50px;
+font-size: 16px;
+font-weight: bold;
+background-color: #214274;
+margin-top:20px ;
+}
+
+
+/* create member  */
+.back-button {
+background-color: #4D8FD9;
+color: #fff;
+border: none;
+padding: 10px 20px;
+margin: 20px;
+cursor: pointer;
+border-radius: 4px;
+
+}
+.create-member-container {
+margin: 20px;
+display: flex ;
+justify-content: center;
+flex-direction: column;
+align-items: center;
+}
+.create-member-container h1 {
+color: #1D3D6F;
+}
+
+.create-user-form {
+width: 50%;
+margin: auto;
+}
+
+.create-user-form input[type="text"],
+.create-user-form input[type="date"],
+.create-user-form select {
+width: 100%;
+margin-bottom: 10px;
+padding: 8px;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-sizing: border-box;
+}
+
+.create-user-form button {
+width: 100%;
+padding: 10px;
+background-color: #4D8FD9;
+color: #fff;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+}
+
+.create-user-form button:hover {
+background-color: #0056b3;
+}
+
+/* admin navbar  */
+.StaffNavbar {
+  background-color: #6695DB;
+}
+
+.headings {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0px 20px;
+  background-color: #6695DB;
+}
+
+li {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+  color: #F9F9F9;
+}
+nav {
+ background-color: #3B6199;
+ margin: 0;
+  padding: 0;
+}
+ul {
+  display: flex;
+  padding: 0;
+}
+
+button {
+  background-color: #1D3D6F;
+  color: #F9F9F9;
+  border: none;
+  padding: 10px 40px;
+  margin: 2px;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+button:hover {
+  background-color: #7794BF;
+
+}
+/* Common Styles */
+body {
+margin: 0;
+padding: 0;
+font-family: 'Lato', Arial, sans-serif;
+background-color: #f3f9ff;
+}
+
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Open Sans', Arial, sans-serif;
+}
+li {
+list-style-type: none;
+}
+a {
+text-decoration: none;
 }

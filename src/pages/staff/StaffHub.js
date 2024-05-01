@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../styles/StaffHub.css';
+import '../../styles/styles.css';
 import StaffNavbar from '../../components/StaffNavbar';
 import StaffSidebar from '../../components/StaffSidebar';
 

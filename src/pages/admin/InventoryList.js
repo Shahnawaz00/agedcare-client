@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/PatientList.css'; // Assume similar CSS styles as PatientList.css
+import '../../styles/styles.css'; // Assume similar CSS styles as PatientList.css
 import AdminNavbar from '../../components/AdminNavbar';
 
 export default function InventoryList() {

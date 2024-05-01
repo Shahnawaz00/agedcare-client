@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/PatientList.css';
+import '../../styles/styles.css';
 import AdminNavbar from '../../components/AdminNavbar';
 
 export default function PatientList() {
