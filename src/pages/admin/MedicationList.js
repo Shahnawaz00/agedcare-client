@@ -9,7 +9,7 @@ export default function MedicationList() {
   useEffect(() => {
     const fetchMedications = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/medications');
+        const response = await axios.get('http://localhost:5000/api/medication');
         setMedications(response.data);
       } catch (error) {
         console.error('Error fetching medications:', error);
@@ -29,7 +29,6 @@ export default function MedicationList() {
             <tr>
               <th>Medication Name</th>
               <th>Dosage Form</th>
-              <th>Quantity on Hand</th>
               <th>Expiration Date</th>
             </tr>
           </thead>
@@ -38,7 +37,6 @@ export default function MedicationList() {
               <tr key={med.medication_id}>
                 <td>{med.medication_name}</td>
                 <td>{med.dosage_form}</td>
-                <td>{med.quantity_on_hand}</td>
                 <td>{med.expiration_date}</td>
               </tr>
             ))}

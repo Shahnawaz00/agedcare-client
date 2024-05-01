@@ -17,7 +17,7 @@ export default function CreateMedication() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/inventories', formData);
+      await axios.post('http://localhost:5000/api/inventory', formData);
       alert('Inventory created successfully!');
       // Optionally, redirect to another page after successful creation
     } catch (error) {

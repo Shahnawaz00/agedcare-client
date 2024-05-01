@@ -1,12 +1,6 @@
 import './styles/styles.css';
 import * as React from "react";
-import {
-    createBrowserRouter,
-    RouterProvider,
-    Routes,
-    Route,
-    BrowserRouter,
-  } from "react-router-dom";
+import {createBrowserRouter,RouterProvider,Routes,Route,BrowserRouter} from "react-router-dom";
 
 // hooks
 import { ProtectedRoute } from "./components/ProtectedRoute";
@@ -14,26 +8,39 @@ import { AdminProtectedRoute } from './components/AdminProtectedRoute';
 import { StaffProtectedRoute } from './components/StaffProtectedRoute';
 import { AuthProvider } from "./hooks/useAuth";
 
-// pages 
-import AdminHub from './pages/admin/AdminHub';
+// Home pages
 import Home from './pages/Home';
+
+import AdminLogin from './pages/login/AdminLogin';
+import StaffLogin from './pages/login/StaffLogin';
+
+// Admin pages 
+import AdminHub from './pages/admin/AdminHub';
+
 import PatientList from './pages/admin/PatientList';
 import ServiceList from './pages/admin/ServiceList';
 import StaffList from './pages/admin/StaffList';
 import InventoryList from './pages/admin/InventoryList';
-import MemberManagement from './pages/admin/MemberManagement';
-import CreateMember from './pages/admin/CreateMember';
+import MedicationList from './pages/admin/MedicationList';
 
-import AdminLogin from './pages/login/AdminLogin';
-import StaffLogin from './pages/login/StaffLogin';
-import StaffManagement from './pages/admin/StaffManagement';
 import ServiceManagement from './pages/admin/ServiceManagement';
+import InventoryManagement from './pages/admin/InventoryManagement';
+import MemberManagement from './pages/admin/MemberManagement';
+import StaffManagement from './pages/admin/StaffManagement';
+
+import CreateMember from './pages/admin/CreateMember';
 import CreateStaff from './pages/admin/CreateStaff';
 import CreateService from './pages/admin/CreateService';
+import CreateInventory from './pages/admin/CreateInventory';
+import CreateMedication from './pages/admin/CreateMedication';
+
+// Staff pages 
 import StaffHub from './pages/staff/StaffHub';
+
 import StaffCalendar from './pages/staff/StaffCalendar';
 import CreateAppointment from './pages/staff/CreateAppointment';
 
+// Member pages 
 
 
 const router = createBrowserRouter([
@@ -41,6 +48,8 @@ const router = createBrowserRouter([
       path: "/",
       element: <Home />,
     },
+
+// Admin section
     {
       path: "/admin",
       element: <ProtectedRoute><AdminHub /></ProtectedRoute>,
@@ -62,8 +71,8 @@ const router = createBrowserRouter([
       element: <div>Calendar</div>,
     },
     {
-      path: "/admin/inventory",
-      element: <div>Inventory</div>,
+      path: "/admin/inventory-management",
+      element: <InventoryManagement />,
     },
     {
       path: "/admin/patient-list",
@@ -93,6 +102,21 @@ const router = createBrowserRouter([
       path: "/admin/create-service",
       element: <CreateService />,
     },
+    {
+      path: "/admin/medication-list",
+      element: <MedicationList />,
+    },
+    {
+      path: "/admin/create-inventory",
+      element: <CreateInventory />,
+    },
+    {
+      path: "/admin/create-medication",
+      element: <CreateMedication />,
+    },
+
+// Staff Section
+
     {
       path: "/staff",
       element: <StaffHub />,
@@ -135,25 +159,28 @@ function App() {
         <Route path="/login/staff" element={<StaffLogin />} />
 
         {/* Admin Routes */}
+        <Route path="/admin" element={<AdminHub /> }/>
         <Route path="/admin/member-management" element={<AdminProtectedRoute><MemberManagement /></AdminProtectedRoute>} />
-        <Route path="/admin/create-member" element={<AdminProtectedRoute><CreateMember /></AdminProtectedRoute>} />
-        <Route path="/admin/calendar" element={<AdminProtectedRoute><div>Calendar</div></AdminProtectedRoute>} />
+        <Route path="/admin/staff-management" element={<AdminProtectedRoute><StaffManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/inventory-management" element={<AdminProtectedRoute><InventoryManagement/></AdminProtectedRoute>} />
+        <Route path="/admin/service-management" element={<AdminProtectedRoute><ServiceManagement /></AdminProtectedRoute>} />
+
         <Route path="/admin/inventory-list" element={<AdminProtectedRoute><InventoryList/></AdminProtectedRoute>} />
         <Route path="/admin/patient-list" element={<AdminProtectedRoute><PatientList /></AdminProtectedRoute>} />
         <Route path="/admin/service-list" element={<AdminProtectedRoute><ServiceList /></AdminProtectedRoute>} />
         <Route path="/admin/staff-list" element={<AdminProtectedRoute><StaffList /></AdminProtectedRoute>} />
-        <Route path="/admin/staff-management" element={<AdminProtectedRoute><StaffManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/medication-list" element={<AdminProtectedRoute><MedicationList /></AdminProtectedRoute>} />
+
+
         <Route path="/admin/create-staff" element={<AdminProtectedRoute><CreateStaff /></AdminProtectedRoute>} />
-        <Route path="/admin/service-management" element={<AdminProtectedRoute><ServiceManagement /></AdminProtectedRoute>} />
         <Route path="/admin/create-service" element={<AdminProtectedRoute><CreateService /></AdminProtectedRoute>} />
-        <Route
-          path="/admin"
-          element={
-           
-              <AdminHub />
-           
-          }
-        />
+        <Route path="/admin/create-member" element={<AdminProtectedRoute><CreateMember /></AdminProtectedRoute>} />
+        <Route path="/admin/create-inventory" element={<AdminProtectedRoute><CreateInventory /></AdminProtectedRoute>} />
+        <Route path="/admin/create-medication" element={<AdminProtectedRoute><CreateMedication /></AdminProtectedRoute>} />
+
+
+        <Route path="/admin/calendar" element={<AdminProtectedRoute><div>Calendar</div></AdminProtectedRoute>} />
+
 
         {/* Staff Routes */}
         <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />

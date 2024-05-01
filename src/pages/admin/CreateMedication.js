@@ -5,10 +5,9 @@ import '../../styles/styles.css'; // Import CSS file
 
 export default function CreateMedication() {
   const [formData, setFormData] = useState({
-    medicationName: '',
-    dosageForm: '',
-    quantityOnHand: '',
-    expirationDate: '',
+    medication_name: '',
+    dosage_form: '',
+    expiration_date: '',
   });
 
   const handleChange = e => {
@@ -18,7 +17,7 @@ export default function CreateMedication() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:5000/api/medications', formData);
+      await axios.post('http://localhost:5000/api/medication', formData);
       alert('Medication created successfully!');
       // Optionally, redirect to another page after successful creation
     } catch (error) {
@@ -35,10 +34,9 @@ export default function CreateMedication() {
       <div className="create-member-container">
         <h1>Create Medication</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
-          <input type="text" name="medicationName" placeholder="Medication Name" value={formData.medicationName} onChange={handleChange} required />
-          <input type="text" name="dosageForm" placeholder="Dosage Form" value={formData.dosageForm} onChange={handleChange} required />
-          <input type="number" name="quantityOnHand" placeholder="Quantity on Hand" value={formData.quantityOnHand} onChange={handleChange} required />
-          <input type="date" name="expirationDate" placeholder="Expiration Date" value={formData.expirationDate} onChange={handleChange} required />
+          <input type="text" name="medication_name" placeholder="Medication Name" value={formData.medication_name} onChange={handleChange} required />
+          <input type="text" name="dosage_form" placeholder="Dosage Form" value={formData.dosage_form} onChange={handleChange} required />
+          <input type="date" name="expiration_date" placeholder="Expiration Date" value={formData.expiration_date} onChange={handleChange} required />
           <button type="submit">Add Medication</button>
         </form>
       </div>

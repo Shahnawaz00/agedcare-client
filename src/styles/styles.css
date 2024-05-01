@@ -408,6 +408,7 @@ margin: auto;
 
 .create-user-form input[type="text"],
 .create-user-form input[type="date"],
+.create-user-form input[type="number"],
 .create-user-form select {
 width: 100%;
 margin-bottom: 10px;
