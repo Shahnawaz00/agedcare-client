@@ -34,6 +34,13 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/admin/appointment-list">
+                            <button>
+                                Appointments
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/admin/inventory-list">
                             <button>
                                 Inventory List

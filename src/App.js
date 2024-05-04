@@ -14,114 +14,37 @@ import { AdminProtectedRoute } from './components/AdminProtectedRoute';
 import { StaffProtectedRoute } from './components/StaffProtectedRoute';
 import { AuthProvider } from "./hooks/useAuth";
 
-// pages 
+// login pages
+import AdminLogin from './pages/login/AdminLogin';
+import StaffLogin from './pages/login/StaffLogin';
+
+// admin pages 
 import AdminHub from './pages/admin/AdminHub';
 import Home from './pages/Home';
+
 import PatientList from './pages/admin/PatientList';
 import ServiceList from './pages/admin/ServiceList';
 import StaffList from './pages/admin/StaffList';
 import InventoryList from './pages/admin/InventoryList';
-import MemberManagement from './pages/admin/MemberManagement';
-import CreateMember from './pages/admin/CreateMember';
+import AppointmentList from './pages/admin/AppointmentList';
 
-import AdminLogin from './pages/login/AdminLogin';
-import StaffLogin from './pages/login/StaffLogin';
 import StaffManagement from './pages/admin/StaffManagement';
 import ServiceManagement from './pages/admin/ServiceManagement';
+import MemberManagement from './pages/admin/MemberManagement';
+import InventoryManagement from './pages/admin/InventoryManagement';
+import AppointmentManagement from './pages/admin/AppointmentManagement';
+
+import CreateMember from './pages/admin/CreateMember';
 import CreateStaff from './pages/admin/CreateStaff';
 import CreateService from './pages/admin/CreateService';
+import CreateInventory from './pages/admin/CreateInventory';
+import CreateAppointment from './pages/admin/CreateAppointment';
+
+// staff pages 
 import StaffHub from './pages/staff/StaffHub';
 import StaffCalendar from './pages/staff/StaffCalendar';
-import CreateAppointment from './pages/staff/CreateAppointment';
+// import CreateAppointment from './pages/staff/CreateAppointment';
 
-
-
-const router = createBrowserRouter([
-    {
-      path: "/",
-      element: <Home />,
-    },
-    {
-      path: "/admin",
-      element: <ProtectedRoute><AdminHub /></ProtectedRoute>,
-    },
-    {
-      path: "/login/admin",
-      element: <AdminLogin />,
-    },
-    {
-      path: "/admin/member-management",
-      element: <MemberManagement />,
-    },
-    {
-      path: "/admin/create-member",
-      element: <CreateMember />,
-    },
-    {
-      path: "/admin/calendar",
-      element: <div>Calendar</div>,
-    },
-    {
-      path: "/admin/inventory",
-      element: <div>Inventory</div>,
-    },
-    {
-      path: "/admin/patient-list",
-      element: <PatientList />,
-    },
-    {
-      path: "/admin/service-list",
-      element: <ServiceList />,
-    },
-    {
-      path: "/admin/staff-list",
-      element: <StaffList />,
-    },
-    {
-      path: "/admin/staff-management",
-      element: <StaffManagement />,
-    },
-    {
-      path: "/admin/create-staff",
-      element: <CreateStaff />,
-    },
-    {
-      path: "/admin/service-management",
-      element: <ServiceManagement />,
-    },
-    {
-      path: "/admin/create-service",
-      element: <CreateService />,
-    },
-    {
-      path: "/staff",
-      element: <StaffHub />,
-    },
-    {
-      path: "/staff/staff-calendar",
-      element: <StaffCalendar />,
-    },
-    {
-      path: "/staff/staff-create-member",
-      element: <div>Create Member</div>,
-    },
-    {
-      path: "/staff/staff-patient-list",
-      element: <div>Patient List</div>,
-    },
-    {
-      path: "/staff/staff-inventory",
-      element: <div>Inventory</div>,
-    },
-    {
-      path: "/staff/staff-service-list",
-      element: <div>Service list</div>,
-    },
-    {
-      path: "/staff/create-appointment",
-      element:  <CreateAppointment />,
-    },
-  ]);
 
 function App() {
   return (
@@ -135,17 +58,25 @@ function App() {
         <Route path="/login/staff" element={<StaffLogin />} />
 
         {/* Admin Routes */}
-        <Route path="/admin/member-management" element={<AdminProtectedRoute><MemberManagement /></AdminProtectedRoute>} />
-        <Route path="/admin/create-member" element={<AdminProtectedRoute><CreateMember /></AdminProtectedRoute>} />
         <Route path="/admin/calendar" element={<AdminProtectedRoute><div>Calendar</div></AdminProtectedRoute>} />
+
         <Route path="/admin/inventory-list" element={<AdminProtectedRoute><InventoryList/></AdminProtectedRoute>} />
         <Route path="/admin/patient-list" element={<AdminProtectedRoute><PatientList /></AdminProtectedRoute>} />
         <Route path="/admin/service-list" element={<AdminProtectedRoute><ServiceList /></AdminProtectedRoute>} />
         <Route path="/admin/staff-list" element={<AdminProtectedRoute><StaffList /></AdminProtectedRoute>} />
+        <Route path="/admin/appointment-list" element={<AdminProtectedRoute><AppointmentList /></AdminProtectedRoute>} />
+        
+        <Route path="/admin/member-management" element={<AdminProtectedRoute><MemberManagement /></AdminProtectedRoute>} />
         <Route path="/admin/staff-management" element={<AdminProtectedRoute><StaffManagement /></AdminProtectedRoute>} />
-        <Route path="/admin/create-staff" element={<AdminProtectedRoute><CreateStaff /></AdminProtectedRoute>} />
+        <Route path="/admin/appointment-management" element={<AdminProtectedRoute><AppointmentManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/inventory-management" element={<AdminProtectedRoute><InventoryManagement /></AdminProtectedRoute>} />
         <Route path="/admin/service-management" element={<AdminProtectedRoute><ServiceManagement /></AdminProtectedRoute>} />
+
+        <Route path="/admin/create-member" element={<AdminProtectedRoute><CreateMember /></AdminProtectedRoute>} />
+        <Route path="/admin/create-staff" element={<AdminProtectedRoute><CreateStaff /></AdminProtectedRoute>} />
         <Route path="/admin/create-service" element={<AdminProtectedRoute><CreateService /></AdminProtectedRoute>} />
+        <Route path="/admin/create-inventory" element={<AdminProtectedRoute><CreateInventory /></AdminProtectedRoute>} />
+        <Route path="/admin/create-appointment" element={<AdminProtectedRoute><CreateAppointment /></AdminProtectedRoute>} />
         <Route
           path="/admin"
           element={

@@ -22,6 +22,15 @@ export default function CreateAppointment() {
     try {
       await axios.post('http://localhost:5000/api/appointments', formData);
       alert('Appointment created successfully!');
+      setFormData({
+        memberId: '',
+        staffId: '',
+        serviceId: '',
+        facilityId: '',
+        date: '',
+        time: '',
+        notes: ''
+      });
       // Optionally, redirect to another page after successful creation
     } catch (error) {
       console.error('Error creating appointment:', error);

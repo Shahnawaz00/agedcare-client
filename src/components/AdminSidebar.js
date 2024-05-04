@@ -13,6 +13,9 @@ export default function AdminSidebar() {
     <Link to="/admin/service-management">
         <button>Service Management</button>
     </Link>
+    <Link to="/admin/appointment-management">
+        <button>Appointment Management</button>
+    </Link>
 </div>
   )
 }
