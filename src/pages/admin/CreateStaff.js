@@ -36,7 +36,7 @@ export default function CreateStaff() {
       <div className='adminhub-content' >
       <AdminSidebar />
       <div className="create-user-container">
-        <h1>Create Staff</h1>
+        <h2>Create Staff</h2>
         <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
           <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} required />

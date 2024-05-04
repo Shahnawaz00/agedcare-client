@@ -47,7 +47,10 @@ export default function AdminList() {
                 <th>Delete</th>
               </tr>
             </thead>
-            <tbody>
+            {admins.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
+                <tbody>
               {admins.map(admin => (
                 <tr key={admin.admin_id}>
                   <td>{admin.admin_id}</td>
@@ -58,7 +61,9 @@ export default function AdminList() {
                   </td>
                 </tr>
               ))}
-            </tbody>
+              
+              </tbody>
+            )}
           </table>
         </div>
       </div>

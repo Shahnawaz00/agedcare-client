@@ -53,6 +53,9 @@ export default function FacilityList() {
                 <th>Delete</th>
               </tr>
             </thead>
+            {facilities.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
             <tbody>
               {facilities.map(facility => (
                 <tr key={facility.facility_id}>
@@ -66,6 +69,7 @@ export default function FacilityList() {
                 </tr>
               ))}
             </tbody>
+            )}
           </table>
         </div>
       </div>

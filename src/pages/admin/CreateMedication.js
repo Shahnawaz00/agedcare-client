@@ -34,7 +34,7 @@ export default function CreateMedication() {
       <div className='adminhub-content' >
         <AdminSidebar />
       <div className="create-member-container">
-        <h1>Create Medication</h1>
+        <h2>Create Medication</h2>
         <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="medication_name" placeholder="Medication Name" value={formData.medication_name} onChange={handleChange} required />
           <input type="text" name="dosage_form" placeholder="Dosage Form" value={formData.dosage_form} onChange={handleChange} required />

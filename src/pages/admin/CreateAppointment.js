@@ -83,8 +83,8 @@ export default function CreateAppointment() {
       <AdminNavbar />
       <div className='adminhub-content' >
         <AdminSidebar />
-      <div className="create-appointment-container">
-        <h1>Create Appointment</h1>
+      <div className="create-user-container">
+        <h2>Create Appointment</h2>
         <form className="create-user-form" onSubmit={handleSubmit}>
           <select name="memberId" value={formData.memberId} onChange={handleChange} required>
             <option value="">Select Member</option>

@@ -54,6 +54,9 @@ export default function StaffList() {
               <th>Delete</th>
             </tr>
           </thead>
+          {staffList.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
           <tbody>
             {staffList.map(staff => (
               <tr key={staff.staff_id}>
@@ -69,6 +72,7 @@ export default function StaffList() {
               </tr>
             ))}
           </tbody>
+          )}
         </table>
       </div>
       </div>

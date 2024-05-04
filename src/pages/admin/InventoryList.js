@@ -71,6 +71,9 @@ export default function InventoryList() {
                 <th>Delete</th>
               </tr>
             </thead>
+            {inventory.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
             <tbody>
               {inventory.map(item => (
                 <tr key={item.inventory_id}>
@@ -84,6 +87,7 @@ export default function InventoryList() {
                 </tr>
               ))}
             </tbody>
+            )}
           </table>
         </div>
       </div>

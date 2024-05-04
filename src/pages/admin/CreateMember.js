@@ -41,7 +41,7 @@ export default function CreateMember() {
 
       <AdminSidebar />
       <div className="create-user-container">
-        <h1>Create Member</h1>
+        <h2>Create Member</h2>
         <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="name" placeholder="Name" value={formData.name} onChange={handleChange} required />
           <input type="date" name="dateOfBirth" placeholder="Date of Birth" value={formData.dateOfBirth} onChange={handleChange} required />

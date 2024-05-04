@@ -54,6 +54,9 @@ export default function MedicationList() {
               <th>Delete</th>
             </tr>
           </thead>
+          {medications.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
           <tbody>
             {medications.map(med => (
               <tr key={med.medication_id}>
@@ -66,6 +69,7 @@ export default function MedicationList() {
               </tr>
             ))}
           </tbody>
+          )}
         </table>
       </div>
       </div>

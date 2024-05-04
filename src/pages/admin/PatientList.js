@@ -62,6 +62,10 @@ const formatDate = (dateString) => {
             <th>Delete</th>
           </tr>
         </thead>
+        {members.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
+
         <tbody>
           {members.map(member => (
             <tr key={member.member_id}>
@@ -78,6 +82,7 @@ const formatDate = (dateString) => {
             </tr>
           ))}
         </tbody>
+        )}
       </table>
       </div>
       </div>  

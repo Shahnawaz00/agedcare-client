@@ -49,6 +49,10 @@ export default function ServiceList() {
 
             </tr>
           </thead>
+          {services.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
+
           <tbody>
             {services.map(service => (
               <tr key={service.service_id}>
@@ -61,6 +65,7 @@ export default function ServiceList() {
               </tr>
             ))}
           </tbody>
+          )}
         </table>
       </div>
       </div>

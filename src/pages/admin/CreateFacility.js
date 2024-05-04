@@ -44,7 +44,7 @@ export default function CreateFacility() {
       <div className='adminhub-content'>
         <AdminSidebar />
         <div className="create-member-container">
-          <h1>Create Facility</h1>
+          <h2>Create Facility</h2>
           <form className="create-user-form" onSubmit={handleSubmit}>
             <input type="text" name="roomNumber" placeholder="Room Number" value={formData.roomNumber} onChange={handleChange} required />
             <select name="occupancyStatus" value={formData.occupancyStatus} onChange={handleChange} required>

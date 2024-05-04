@@ -43,17 +43,13 @@ export default function CreateService() {
       <AdminSidebar />
 
       <div className="create-user-container">
-        <h1>Create Service</h1>
+        <h2>Create Service</h2>
         <form className="create-user-form" onSubmit={handleSubmit}>
           <input type="text" name="service_type" placeholder="Service Type" value={formData.service_type} onChange={handleChange} required />
           <input type="text" name="duration" placeholder="Duration" value={formData.duration} onChange={handleChange} required />
           <textarea name="description" placeholder="Description" value={formData.description} onChange={handleChange} required />
           <button type="submit">Create Service</button>
-          {success && (
-            <div className="success-message">
-              Service created successfully! View the service <Link to='admin/service-list' >here</Link>.
-            </div>
-          )}
+       
         </form>
       </div>
       </div>
