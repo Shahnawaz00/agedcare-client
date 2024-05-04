@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/PatientList.css'; // Assume similar CSS styles as PatientList.css
-import AdminNavbar from '../../components/AdminNavbar';
+import '../../styles/styles.css'; // Assume similar CSS styles as PatientList.css
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/AppointmentManagementSidebar';
 
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
@@ -14,7 +15,7 @@ export default function AppointmentList() {
           const memberResponse = await axios.get(`http://localhost:5000/api/members/${appointment.member_id}`);
           const staffResponse = await axios.get(`http://localhost:5000/api/staff/${appointment.staff_id}`);
           const serviceResponse = await axios.get(`http://localhost:5000/api/services/${appointment.service_id}`);
-          const facilityResponse = await axios.get(`http://localhost:5000/api/facilities/${appointment.facility_id}`);
+          const facilityResponse = await axios.get(`http://localhost:5000/api/facility/${appointment.facility_id}`);
           return {
             ...appointment,
             member_name: memberResponse.data.name,
@@ -35,6 +36,9 @@ export default function AppointmentList() {
   return (
     <div>
       <AdminNavbar />
+      <div className='adminhub-content'>
+        <AdminSidebar />
+    
       <div className="list-table-div">
         <h2>Appointment List</h2>
         <table className="list-table">
@@ -50,7 +54,10 @@ export default function AppointmentList() {
               {/* <th>Notes</th> */}
             </tr>
           </thead>
-          <tbody>
+          {appointments.length === 0 ? (
+                <div className='loading' ></div>
+            ) : (
+                <tbody>
             {appointments.map(appointment => (
               <tr key={appointment.appointment_id}>
                 <td>{appointment.appointment_id}</td>
@@ -64,8 +71,12 @@ export default function AppointmentList() {
               </tr>
             ))}
           </tbody>
+            )}
+          
         </table>
       </div>
+      </div>
+      
     </div>
   );
 }

@@ -10,7 +10,6 @@ export default function InventoryManagement() {
             <AdminSidebar />
             <div>
                 <h1 className='adminhub-heading' >Inventory Management</h1>
-                
             </div>
         </div>
     </div>

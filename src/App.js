@@ -15,6 +15,7 @@ import StaffLogin from './pages/login/StaffLogin';
 
 // Admin pages 
 import AdminHub from './pages/admin/AdminHub';
+import AppointmentManagement from './pages/admin/AppointmentManagement';
 import FacilityManagement from './pages/admin/FacilityManagement';
 import ServiceManagement from './pages/admin/ServiceManagement';
 import InventoryManagement from './pages/admin/InventoryManagement';
@@ -28,6 +29,10 @@ import StaffList from './pages/admin/StaffList';
 import InventoryList from './pages/admin/InventoryList';
 import MedicationList from './pages/admin/MedicationList';
 import AdminList from './pages/admin/AdminList';
+import FacilityList from './pages/admin/FacilityList';
+import AppointmentList from './pages/admin/AppointmentList';
+import ScheduleList from './pages/admin/ScheduleList';
+
 import CreateMember from './pages/admin/CreateMember';
 
 
@@ -77,6 +82,7 @@ function App() {
         <Route path="/admin/service-management" element={<AdminProtectedRoute><ServiceManagement /></AdminProtectedRoute>} />
         <Route path="/admin/calendar" element={<AdminProtectedRoute><Calendar /></AdminProtectedRoute>} />
         <Route path="/admin/facility-management" element={<AdminProtectedRoute><FacilityManagement /></AdminProtectedRoute>} />
+        <Route path="/admin/appointment-management" element={<AdminProtectedRoute><AppointmentManagement /></AdminProtectedRoute>} />
 
         <Route path="/admin/inventory-list" element={<AdminProtectedRoute><InventoryList/></AdminProtectedRoute>} />
         <Route path="/admin/patient-list" element={<AdminProtectedRoute><PatientList /></AdminProtectedRoute>} />

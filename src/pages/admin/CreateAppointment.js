@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/AdminNavbar';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/AppointmentManagementSidebar';
 // Import CSS file if needed
 
 export default function CreateAppointment() {
@@ -80,7 +81,8 @@ export default function CreateAppointment() {
   return (
     <div className='CreateAppointment'>
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+      <div className='adminhub-content' >
+        <AdminSidebar />
       <div className="create-appointment-container">
         <h1>Create Appointment</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -113,6 +115,7 @@ export default function CreateAppointment() {
           <input type="text" name="notes" placeholder="Notes" value={formData.notes} onChange={handleChange} />
           <button type="submit">Create Appointment</button>
         </form>
+      </div>
       </div>
     </div>
   );

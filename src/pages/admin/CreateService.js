@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import AdminNavbar from '../../components/AdminNavbar';
-import '../../styles/AdminHub.css';
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import AdminSidebar from '../../components/admin/ServiceManagementSidebar';
+import '../../styles/styles.css';
 
 export default function CreateService() {
   const [formData, setFormData] = useState({
@@ -40,7 +41,6 @@ export default function CreateService() {
 
       <div className='adminhub-content' >
       <AdminSidebar />
-
 
       <div className="create-user-container">
         <h1>Create Service</h1>

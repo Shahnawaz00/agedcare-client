@@ -34,23 +34,9 @@ function AdminNavbar() {
                         </Link>
                     </li>   
                     <li>
-                        <Link to="/admin/inventory-management">
+                        <Link to="/admin/appointment-management">
                             <button>
-                                Inventory Management
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/member-management">
-                            <button>
-                                Member Management
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/service-management">
-                            <button>
-                                Service Management
+                                Appointment Management
                             </button>
                         </Link>
                     </li>
@@ -65,6 +51,20 @@ function AdminNavbar() {
                         <Link to="/admin/facility-management">
                             <button>
                                 Facility Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/service-management">
+                            <button>
+                                Service Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/inventory-management">
+                            <button>
+                                Inventory Management
                             </button>
                         </Link>
                     </li>
