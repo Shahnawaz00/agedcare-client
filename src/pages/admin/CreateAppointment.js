@@ -49,7 +49,7 @@ export default function CreateAppointment() {
 
     const fetchFacilities = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/facilities');
+        const response = await axios.get('http://localhost:5000/api/facility');
         setFacilities(response.data);
       } catch (error) {
         console.error('Error fetching facilities:', error);
@@ -71,6 +71,16 @@ export default function CreateAppointment() {
     try {
       await axios.post('http://localhost:5000/api/appointments', formData);
       alert('Appointment created successfully!');
+      console.log('Appointment created:', formData);
+      setFormData({
+        memberId: '',
+        staffId: '',
+        serviceId: '',
+        facilityId: '',
+        appointmentDate: '',
+        appointmentTime: '',
+        notes: '',
+      });
       // Optionally, redirect to another page after successful creation
     } catch (error) {
       console.error('Error creating appointment:', error);

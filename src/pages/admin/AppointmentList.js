@@ -33,6 +33,10 @@ export default function AppointmentList() {
     fetchAppointments();
   }, []);
 
+  const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toISOString().split('T')[0];
+  };
   return (
     <div>
       <AdminNavbar />
@@ -65,7 +69,7 @@ export default function AppointmentList() {
                 <td>{appointment.staff_name}</td>
                 <td>{appointment.service_name}</td>
                 <td>{appointment.facility_name}</td>
-                <td>{appointment.appointment_date}</td>
+                <td>{formatDate(appointment.appointment_date)}</td>
                 <td>{appointment.appointment_time}</td>
                 {/* <td>{appointment.notes}</td> */}
               </tr>

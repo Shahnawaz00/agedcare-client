@@ -16,6 +16,9 @@ body {
   a {
   text-decoration: none;
   }
+  button {
+    border: none;
+  }
 
 /* loading styles  */
 .loading {
@@ -35,6 +38,21 @@ body {
   }
 }
 
+
+.adminhub-content-calender {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 20px;
+}
+
+.adminhub-content-calender h1 {
+margin: 20px;
+color: #1D3D6F;
+}
+.appointments-table-calender {
+  color: #585858;
+}
 /* admin styles  */
 .adminhub-content {
 display: flex;
@@ -166,7 +184,7 @@ background-color: #0056b3;
   background-color: #6695DB;
 }
 
-li {
+/* li {
   list-style-type: none;
 }
 a {
@@ -190,13 +208,13 @@ button {
   padding: 10px 40px;
   margin: 2px;
   cursor: pointer;
-  border-radius: 4px; /* Added border-radius property */
+  border-radius: 4px;
 }
 
 button:hover {
   background-color: #7794BF;
 
-}
+} */
 /* Home Page Styles */
 .Home {
   display: flex;
@@ -513,7 +531,7 @@ ul {
   padding: 0;
 }
 
-button {
+.AdminNavbar button {
   background-color: #1D3D6F;
   color: #F9F9F9;
   border: none;
