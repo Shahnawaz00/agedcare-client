@@ -6,6 +6,7 @@ import AdminSidebar from '../../components/admin/AdminManagementSidebar';
 
 export default function AdminList() {
   const [admins, setAdmins] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchAdmins();
@@ -31,6 +32,15 @@ export default function AdminList() {
     }
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredAdmins = admins.filter(admin =>
+    admin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    admin.email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (  
     <div>
       <AdminNavbar />
@@ -38,6 +48,13 @@ export default function AdminList() {
         <AdminSidebar />
         <div className="list-table-div">
           <h2>Admin List</h2>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-bar"
+          />
           <table className="list-table">
             <thead>
               <tr>
@@ -48,7 +65,7 @@ export default function AdminList() {
               </tr>
             </thead>
             <tbody>
-              {admins.map(admin => (
+              {filteredAdmins.map(admin => (
                 <tr key={admin.admin_id}>
                   <td>{admin.admin_id}</td>
                   <td>{admin.name}</td>

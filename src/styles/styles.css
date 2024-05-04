@@ -512,3 +512,11 @@ list-style-type: none;
 a {
 text-decoration: none;
 }
+
+
+.search-bar{
+  float: right;
+  padding:10px;
+  border-radius: 20px;
+  border:2px solid #ccc;
+}
