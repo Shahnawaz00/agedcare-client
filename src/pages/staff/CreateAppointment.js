@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import StaffNavbar from '../../components/StaffNavbar';
+import StaffNavbar from '../../components/staff/StaffNavbar';
 
 export default function CreateAppointment() {
   const [formData, setFormData] = useState({

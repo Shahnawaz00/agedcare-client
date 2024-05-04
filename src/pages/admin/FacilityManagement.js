@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/styles.css';
 import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/AdminManagementSidebar';
+import AdminSidebar from '../../components/admin/FacilityManagementSidebar';
 
 
 function AdminHub() {
@@ -10,7 +10,7 @@ function AdminHub() {
         <AdminNavbar />
         <div className='adminhub-content' >
           <AdminSidebar />
-            <h1 className='adminhub-heading' >Admin Hub</h1>
+            <h1 className='adminhub-heading' >Facility Management</h1>
         </div>
       </div>
     );

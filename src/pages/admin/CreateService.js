@@ -37,7 +37,11 @@ export default function CreateService() {
   return (
     <div className='createService' >
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+
+      <div className='adminhub-content' >
+      <AdminSidebar />
+
+
       <div className="create-user-container">
         <h1>Create Service</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -51,6 +55,7 @@ export default function CreateService() {
             </div>
           )}
         </form>
+      </div>
       </div>
     </div>
   );

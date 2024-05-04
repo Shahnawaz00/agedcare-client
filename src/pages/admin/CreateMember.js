@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/AdminNavbar';
-// import '../../styles/CreateMember.css'; // Import CSS file
+import AdminNavbar from '../../components/admin/AdminNavbar';
+import '../../styles/styles.css'; // Import CSS file
+import AdminSidebar from '../../components/admin/MemberManagementSidebar';
 
 export default function CreateMember() {
   const [formData, setFormData] = useState({
@@ -36,7 +37,9 @@ export default function CreateMember() {
   return (
     <div className='CreateUser' >
       <AdminNavbar />
-      <button className='back-button' onClick={() => window.history.back()}>Back</button>
+      <div className='adminhub-content' >
+
+      <AdminSidebar />
       <div className="create-user-container">
         <h1>Create Member</h1>
         <form className="create-user-form" onSubmit={handleSubmit}>
@@ -55,6 +58,7 @@ export default function CreateMember() {
           <input type="text" name="generalPractitioner" placeholder="General Practitioner" value={formData.generalPractitioner} onChange={handleChange} />
           <button type="submit">Create Member</button>
         </form>
+      </div>
       </div>
     </div>
   );
