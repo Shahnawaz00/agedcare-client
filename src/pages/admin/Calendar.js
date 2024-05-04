@@ -83,6 +83,7 @@ function AdminHub() {
           <table className='list-table' >
             <thead>
               <tr>
+                <th>Appointment ID</th>
                 <th>Member</th>
                 <th>Staff</th>
                 <th>Service</th>
@@ -100,6 +101,7 @@ function AdminHub() {
             <tbody>
               {appointments.map(appointment => (
                 <tr key={appointment.appointment_id}>
+                  <td>{appointment.appointment_id}</td>
                   <td>{appointment.member_name}</td>
                   <td>{appointment.staff_name}</td>
                   <td>{appointment.service_name}</td>
