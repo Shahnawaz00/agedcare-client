@@ -62,6 +62,7 @@ import StaffHub from './pages/staff/StaffHub';
 import StaffCalendar from './pages/staff/StaffCalendar';
 import StaffAppointmentList from './pages/staff/StaffAppointmentList';
 import StaffPatientList from './pages/staff/StaffPatientList';
+import StaffAccount from './pages/staff/StaffAccount';
 
 function App() {
   return (
@@ -123,6 +124,7 @@ function App() {
         <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><div>Service list</div></StaffProtectedRoute>} />
         <Route path="/staff/create-appointment" element={<StaffProtectedRoute><CreateAppointment /></StaffProtectedRoute>} />
         <Route path="/staff/staff-appointment-list" element={<StaffProtectedRoute><StaffAppointmentList /></StaffProtectedRoute>} />
+        <Route path="/staff/account" element={<StaffProtectedRoute><StaffAccount /></StaffProtectedRoute>} />
       </Routes>
         {/* <RouterProvider router={router} /> */}
       </AuthProvider>

@@ -606,7 +606,15 @@ button:hover {
 
 }
 
+/* staff account  */
 
+.staff-account-page {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 50px;
+  color: #585858;
+
+}
 /* hamburger styles  */
 #menuToggle input
   {
