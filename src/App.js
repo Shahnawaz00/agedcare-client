@@ -112,7 +112,7 @@ function App() {
         <Route path="/admin/record-appointment" element={<AdminProtectedRoute><RecordAppointment /></AdminProtectedRoute>} />
         <Route path="/admin/record-schedule" element={<AdminProtectedRoute><RecordSchedule /></AdminProtectedRoute>} />
         <Route path="/admin/record-admin" element={<AdminProtectedRoute><RecordAdmin /></AdminProtectedRoute>} />
-        <Route path="/admin/record-facility" element={<AdminProtectedRoute><RecordFacility /></AdminProtectedRoute>} />
+        <Route path="/admin/record-facility/:id" element={<AdminProtectedRoute><RecordFacility /></AdminProtectedRoute>} />
 
         {/* Staff Routes */}
         <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />

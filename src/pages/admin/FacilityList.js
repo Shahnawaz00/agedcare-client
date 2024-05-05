@@ -3,6 +3,7 @@ import axios from 'axios';
 import '../../styles/styles.css';
 import AdminNavbar from '../../components/admin/AdminNavbar';
 import AdminSidebar from '../../components/admin/FacilityManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function FacilityList() {
   const [facilities, setFacilities] = useState([]);
@@ -17,17 +18,6 @@ export default function FacilityList() {
       setFacilities(response.data);
     } catch (error) {
       console.error('Error fetching facilities:', error);
-    }
-  };
-
-  const deleteFacility = async (facilityId) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/facility/${facilityId}`);
-      alert('Facility deleted successfully!');
-      fetchFacilities();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting facility:', error);
-      alert('Failed to delete facility. Please try again.');
     }
   };
 
@@ -50,7 +40,7 @@ export default function FacilityList() {
                 <th>Occupancy Status</th>
                 <th>Reservation Length</th>
                 <th>Date Reserved</th>
-                <th>Delete</th>
+                <th>Edit</th>
               </tr>
             </thead>
             {facilities.length === 0 ? (
@@ -64,7 +54,7 @@ export default function FacilityList() {
                   <td>{facility.reservation_length}</td>
                   <td>{facility.date_reserved ? formatDate(facility.date_reserved) : 'N/A'}</td>
                   <td>
-                      <button onClick={() => deleteFacility(facility.facility_id)}>Delete</button>
+                  <Link to={`/admin/record-facility/${facility.facility_id}`}>Edit</Link>
                   </td>
                 </tr>
               ))}
