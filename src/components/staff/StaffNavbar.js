@@ -34,9 +34,9 @@ function StaffNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/staff/staff-inventory">
+                        <Link to="/staff/staff-inventory-list">
                             <button>
-                                Inventory
+                                Inventory List
                             </button>
                         </Link>
                     </li>

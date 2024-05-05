@@ -58,8 +58,12 @@ import RecordAdmin from './pages/admin/RecordAdmin';
 
 // Staff pages 
 import StaffHub from './pages/staff/StaffHub';
-
+import StaffInventoryList from './pages/staff/StaffInventoryList';
+import StaffPatientList from './pages/staff/StaffPatientList';  
 import StaffCalendar from './pages/staff/StaffCalendar';
+import StaffServiceList from './pages/staff/StaffServiceList';
+import StaffMyAppointments from './pages/staff/StaffMyAppointments';
+import StaffMyDetails from './pages/staff/StaffMyDetails';
 // import CreateAppointment from './pages/staff/CreateAppointment';
 
 
@@ -118,10 +122,12 @@ function App() {
         <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />
         <Route path="/staff/staff-calendar" element={<StaffProtectedRoute><StaffCalendar /></StaffProtectedRoute>} />
         <Route path="/staff/staff-create-member" element={<StaffProtectedRoute><div>Create Member</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute><div>Patient List</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-inventory" element={<StaffProtectedRoute><div>Inventory</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><div>Service list</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute><StaffPatientList /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-inventory-list" element={<StaffProtectedRoute><StaffInventoryList/></StaffProtectedRoute>} />
+        <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><StaffServiceList /></StaffProtectedRoute>} />
         <Route path="/staff/create-appointment" element={<StaffProtectedRoute><CreateAppointment /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-my-appointments" element={<StaffProtectedRoute><div>My Appointments</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-my-details" element={<StaffProtectedRoute><div>My Details</div></StaffProtectedRoute>} />
       </Routes>
         {/* <RouterProvider router={router} /> */}
       </AuthProvider>
