@@ -99,7 +99,7 @@ margin-top:20px ;
 }
 
 /* logout button   */
-.logout-button {
+#logout-button {
   background-color: #d9854d;
   color: #fff;
   border: none;
@@ -107,7 +107,7 @@ margin-top:20px ;
   cursor: pointer;
 }
 
-.logout-button:hover {
+#logout-button:hover {
   background-color: #b32400;
 }
 
@@ -625,7 +625,7 @@ button:hover {
   }
   
 /* Tablet Styles */
-@media (max-width: 1024px) {
+@media (max-width: 1600px) {
   .desktop-nav {
     display: none;
   }

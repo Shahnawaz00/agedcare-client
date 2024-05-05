@@ -1,16 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/AppointmentManagementSidebar';
+import StaffNavbar from '../../components/staff/StaffNavbar';
+import { useAuth } from '../../hooks/useAuth';
 
 export default function AppointmentList() {
+
+  const {user} = useAuth();
   const [appointments, setAppointments] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/appointments');
+        const response = await axios.get(`http://localhost:5000/api/staffAppointment?staff_id=${user.staff_id}`);
         const appointmentsData = await Promise.all(response.data.map(async appointment => {
           const memberResponse = await axios.get(`http://localhost:5000/api/members/${appointment.member_id}`);
           const staffResponse = await axios.get(`http://localhost:5000/api/staff/${appointment.staff_id}`);
@@ -41,9 +43,8 @@ export default function AppointmentList() {
   };
   return (
     <div>
-      <AdminNavbar />
+      <StaffNavbar />
       <div className='adminhub-content'>
-        <AdminSidebar />
     
       <div className="list-table-div">
         <h2>Appointment List</h2>
@@ -60,6 +61,7 @@ export default function AppointmentList() {
               {/* <th>Notes</th> */}
             </tr>
           </thead>
+
           { loading ? (
               <div className='loading' ></div>
               ) : (appointments.length === 0 ? (

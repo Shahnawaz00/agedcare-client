@@ -8,16 +8,63 @@ function StaffNavbar() {
         logout();
     }
     return (
-        <div className="StaffNavbar">
+        <div className="AdminNavbar">
             <div className='headings' >
                 <h1>Aged Care</h1>
                 <h3>User - {user.name}</h3>
-                <button onClick={handleLogout}>
-                    Logout
-                </button>
+                <nav role='navigation' >
+                <div id='menuToggle' >
+                    <input type='checkbox' />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id='menu' >
+                    <li>
+                        <Link to={'/staff'}>
+                            <button>
+                                Staff Hub
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/staff/staff-calendar">
+                            <button>
+                                Calendar
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/staff/staff-appointment-list">
+                            <button>
+                                Appointment List
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/staff/staff-patient-list">
+                            <button>
+                                Patient List
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/staff/account">
+                            <button>
+                                Account
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <button id='logout-button' onClick={handleLogout} >
+                            Logout
+                        </button>
+                    </li>
+                    </ul>
+                </div>
+                </nav>
             </div>
 
-            <nav>
+            <nav role='navigation' className='desktop-nav'>
                 <ul>
                     <li>
                         <Link to={'/staff'}>
@@ -34,9 +81,9 @@ function StaffNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/staff/staff-inventory">
+                        <Link to="/staff/staff-appointment-list">
                             <button>
-                                Inventory
+                                Appointment List
                             </button>
                         </Link>
                     </li>
@@ -48,11 +95,16 @@ function StaffNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/staff/staff-service-list">
+                        <Link to="/staff/account">
                             <button>
-                                Service List
+                                Account
                             </button>
                         </Link>
+                    </li>
+                    <li>
+                        <button id='logout-button' onClick={handleLogout} >
+                            Logout
+                        </button>
                     </li>
                 </ul>
             </nav>

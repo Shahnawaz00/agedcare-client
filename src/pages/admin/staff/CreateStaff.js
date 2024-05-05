@@ -23,7 +23,15 @@ export default function CreateStaff() {
     try {
       await axios.post('http://localhost:5000/api/staff', formData);
       alert('Staff created successfully!');
-      // Optionally, redirect to another page after successful creation
+      setFormData({
+        name: '',
+        email: '',
+        password: '',
+        contact_information: '',
+        qualifications: '',
+        role: '',
+        availability: ''
+      });
     } catch (error) {
       console.error('Error creating staff:', error);
       alert('Failed to create staff. Please try again.');

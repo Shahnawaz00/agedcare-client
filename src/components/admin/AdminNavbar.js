@@ -48,6 +48,13 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/admin/member-management">
+                            <button>
+                                Member Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/admin/facility-management">
                             <button>
                                 Facility Management
@@ -109,6 +116,13 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/admin/member-management">
+                            <button>
+                                Member Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/admin/facility-management">
                             <button>
                                 Facility Management
@@ -130,7 +144,7 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <button className='logout-button' onClick={handleLogout} >
+                        <button id='logout-button' onClick={handleLogout} >
                             Logout
                         </button>
                     </li>

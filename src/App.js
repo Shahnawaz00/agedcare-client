@@ -60,8 +60,8 @@ import RecordAdmin from './pages/admin/adminhub/RecordAdmin';
 import StaffHub from './pages/staff/StaffHub';
 
 import StaffCalendar from './pages/staff/StaffCalendar';
-// import CreateAppointment from './pages/staff/CreateAppointment';
-
+import StaffAppointmentList from './pages/staff/StaffAppointmentList';
+import StaffPatientList from './pages/staff/StaffPatientList';
 
 function App() {
   return (
@@ -118,10 +118,11 @@ function App() {
         <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />
         <Route path="/staff/staff-calendar" element={<StaffProtectedRoute><StaffCalendar /></StaffProtectedRoute>} />
         <Route path="/staff/staff-create-member" element={<StaffProtectedRoute><div>Create Member</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute><div>Patient List</div></StaffProtectedRoute>} />
+        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute> <StaffPatientList/> </StaffProtectedRoute>} />
         <Route path="/staff/staff-inventory" element={<StaffProtectedRoute><div>Inventory</div></StaffProtectedRoute>} />
         <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><div>Service list</div></StaffProtectedRoute>} />
         <Route path="/staff/create-appointment" element={<StaffProtectedRoute><CreateAppointment /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-appointment-list" element={<StaffProtectedRoute><StaffAppointmentList /></StaffProtectedRoute>} />
       </Routes>
         {/* <RouterProvider router={router} /> */}
       </AuthProvider>
