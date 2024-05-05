@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/styles.css';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/FacilityManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/FacilityManagementSidebar';
 import { Link } from 'react-router-dom';
 
 export default function FacilityList() {
@@ -54,7 +53,7 @@ export default function FacilityList() {
                   <td>{facility.reservation_length}</td>
                   <td>{facility.date_reserved ? formatDate(facility.date_reserved) : 'N/A'}</td>
                   <td>
-                  <Link to={`/admin/record-facility/${facility.facility_id}`}>Edit</Link>
+                  <Link className="edit-link" to={`/admin/record-facility/${facility.facility_id}`}>Edit</Link>
                   </td>
                 </tr>
               ))}

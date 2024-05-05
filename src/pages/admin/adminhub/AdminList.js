@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/styles.css';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/AdminManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
 
 export default function AdminList() {
   const [admins, setAdmins] = useState([]);

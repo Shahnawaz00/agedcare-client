@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useAuth } from '../../hooks/useAuth';
-import '../../styles/styles.css';
 
 const StaffLogin = () => {
   const [email, setEmail] = useState('');

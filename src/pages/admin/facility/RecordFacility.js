@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import '../../styles/styles.css';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/FacilityManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/FacilityManagementSidebar';
 import { useParams, useNavigate } from 'react-router-dom';
 
 export default function RecordFacility() {
@@ -82,8 +81,12 @@ export default function RecordFacility() {
             <AdminNavbar />
             <div className='adminhub-content'>
                 <AdminSidebar />
-                <div className="list-table-div">
+                <div className="create-user-container">
+                    <div className='create-user-container-top-div'>
                     <h2>Facility Details</h2>
+                    <button className='back-button' onClick={() => editing ? setEditing(false) : navigate("/admin/facility-list")}>Back</button>
+
+                    </div>
                     {!editing ? (
                         <>
                             <table className="list-table">
@@ -104,11 +107,15 @@ export default function RecordFacility() {
                                     </tr>
                                 </tbody>
                             </table>
-                            <button onClick={() => setEditing(true)} style={{ margin: "20px", padding: "10px" }}>Edit Facility</button>
-                            <button onClick={deleteFacility} style={{ margin: "20px", padding: "10px" }}>Delete Facility</button>
+                            <div className='edit-button-div' >
+                                <button onClick={() => setEditing(true)} >Edit Facility</button>
+                                <button onClick={deleteFacility} >Delete Facility</button>
+                            </div>
+                            
                         </>
+                        
                     ) : (
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className='create-user-form'>
                             <label>Room Number:</label>
                             <input type="text" name="room_number" value={formData.room_number} onChange={handleInputChange} />
                             <label>Occupancy Status:</label>
@@ -117,8 +124,8 @@ export default function RecordFacility() {
                             <input type="text" name="reservation_length" value={formData.reservation_length} onChange={handleInputChange} />
                             <label>Date Reserved:</label>
                             <input type="date" name="date_reserved" value={formData.date_reserved} onChange={handleInputChange} />
-                            <button type="submit">Confirm Update</button>
-                            <button onClick={() => setEditing(false)} style={{ margin: "20px", padding: "10px" }}>Cancel</button>
+                            <button className='confirm-btn' type="submit">Confirm Update</button>
+                            <button className='cancel-btn' onClick={() => setEditing(false)}>Cancel</button>
                         </form>
                     )}
                 </div>

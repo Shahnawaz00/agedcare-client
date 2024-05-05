@@ -19,8 +19,31 @@ body {
   button {
     border: none;
     border-radius: 5px;
+    cursor: pointer;
+    font-weight: normal;
   }
+.create-user-form > .cancel-btn {
+  background-color: #d9854d;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
 
+}
+.create-user-form > .cancel-btn:hover {
+  background-color: #b32400;
+}
+
+.create-user-form > .confirm-btn {
+  background-color: #138308;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+.create-user-form > .confirm-btn:hover {
+  background-color: #064400;
+}
 /* loading styles  */
 .loading {
   display: inline-block;
@@ -390,12 +413,20 @@ li {
 
   .list-table tbody tr:nth-child(odd) {
       background-color: #F9F9F9; /* Light gray background color */
-      cursor: pointer;
   }
 .list-table tbody tr:nth-child(even) {
   background-color: #DFDFDF; /* Darker gray background color */
-  cursor: pointer;
 
+}
+
+.edit-link {
+  color: #0056b3;
+  text-decoration: none;
+
+}
+.edit-link:hover {
+  text-decoration: underline;
+  color: #000102;
 }
 
 .list-table tbody tr:hover {
@@ -448,6 +479,35 @@ background-color: #214274;
 margin-top:20px ;
 }
 
+/* edit pages */
+.create-user-container-top-div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px;
+
+}
+.create-user-container-top-div > .back-button {
+background-color: #d9854d;
+color: #fff;
+padding: 10px 20px;
+font-weight: 500;
+align-self:center;
+}
+.create-user-container-top-div > .back-button:hover {
+background-color: #d46346;
+}
+
+.edit-button-div button {
+background-color: #4D8FD9;
+color: #fff;
+padding: 10px 20px;
+font-weight:normal;
+}
+
+.edit-button-div button:hover {
+background-color: #0056b3;
+}
 
 /* create pages  */
 .back-button {
@@ -458,7 +518,6 @@ padding: 10px 20px;
 margin: 20px;
 cursor: pointer;
 border-radius: 4px;
-
 }
 .create-member-container {
 margin: 20px;

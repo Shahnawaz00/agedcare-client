@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/ServiceManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/ServiceManagementSidebar';
 import { Link } from 'react-router-dom';
 export default function ServiceManagement() {
   return (

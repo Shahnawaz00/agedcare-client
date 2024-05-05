@@ -1,6 +1,6 @@
 import React from 'react'
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/StaffManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
 import { Link } from 'react-router-dom';
 export default function StaffManagement() {
   return (

@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import '../../styles/styles.css'; // Import CSS file
-import AdminSidebar from '../../components/admin/MemberManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/MemberManagementSidebar';
 
 export default function CreateMember() {
   const [formData, setFormData] = useState({

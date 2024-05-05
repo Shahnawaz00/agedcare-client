@@ -1,5 +1,4 @@
 import React from 'react';
-import '../../styles/styles.css';
 import StaffNavbar from '../../components/staff/StaffNavbar';
 import StaffCalendarSidebar from '../../components/staff/StaffCalendarSidebar';
 import DayTimetable from '../../components/DayTimetable'; 

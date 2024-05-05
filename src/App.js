@@ -14,46 +14,46 @@ import AdminLogin from './pages/login/AdminLogin';
 import StaffLogin from './pages/login/StaffLogin';
 
 // Admin pages 
-import AdminHub from './pages/admin/AdminHub';
-import AppointmentManagement from './pages/admin/AppointmentManagement';
-import FacilityManagement from './pages/admin/FacilityManagement';
-import ServiceManagement from './pages/admin/ServiceManagement';
-import InventoryManagement from './pages/admin/InventoryManagement';
-import MemberManagement from './pages/admin/MemberManagement';
-import StaffManagement from './pages/admin/StaffManagement';
-import Calendar from './pages/admin/Calendar';
+import AdminHub from './pages/admin/adminhub/AdminHub';
+import AppointmentManagement from './pages/admin/appointment/AppointmentManagement';
+import FacilityManagement from './pages/admin/facility/FacilityManagement';
+import ServiceManagement from './pages/admin/service/ServiceManagement';
+import InventoryManagement from './pages/admin/inventory/InventoryManagement';
+import MemberManagement from './pages/admin/member/MemberManagement';
+import StaffManagement from './pages/admin/staff/StaffManagement';
+import Calendar from './pages/admin/calender/Calendar';
 
-import PatientList from './pages/admin/PatientList';
-import ServiceList from './pages/admin/ServiceList';
-import StaffList from './pages/admin/StaffList';
-import InventoryList from './pages/admin/InventoryList';
-import MedicationList from './pages/admin/MedicationList';
-import AdminList from './pages/admin/AdminList';
-import FacilityList from './pages/admin/FacilityList';
-import AppointmentList from './pages/admin/AppointmentList';
-import ScheduleList from './pages/admin/ScheduleList';
+import PatientList from './pages/admin/member/PatientList';
+import ServiceList from './pages/admin/service/ServiceList';
+import StaffList from './pages/admin/staff/StaffList';
+import InventoryList from './pages/admin/inventory/InventoryList';
+import MedicationList from './pages/admin/inventory/MedicationList';
+import AdminList from './pages/admin/adminhub/AdminList';
+import FacilityList from './pages/admin/facility/FacilityList';
+import AppointmentList from './pages/admin/appointment/AppointmentList';
+import ScheduleList from './pages/admin/calender/ScheduleList';
 
-import CreateMember from './pages/admin/CreateMember';
+import CreateMember from './pages/admin/member/CreateMember';
 
 
-import CreateStaff from './pages/admin/CreateStaff';
-import CreateService from './pages/admin/CreateService';
-import CreateInventory from './pages/admin/CreateInventory';
-import CreateMedication from './pages/admin/CreateMedication';
-import CreateFacility from './pages/admin/CreateFacility';
-import CreateSchedule from './pages/admin/CreateSchedule';
-import CreateAppointment from './pages/admin/CreateAppointment';
-import CreateAdmin from './pages/admin/CreateAdmin';
+import CreateStaff from './pages/admin/staff/CreateStaff';
+import CreateService from './pages/admin/service/CreateService';
+import CreateInventory from './pages/admin/inventory/CreateInventory';
+import CreateMedication from './pages/admin/inventory/CreateMedication';
+import CreateFacility from './pages/admin/facility/CreateFacility';
+import CreateSchedule from './pages/admin/calender/CreateSchedule';
+import CreateAppointment from './pages/admin/appointment/CreateAppointment';
+import CreateAdmin from './pages/admin/adminhub/CreateAdmin';
 
-import RecordMember from './pages/admin/RecordMember';
-import RecordStaff from './pages/admin/RecordStaff';
-import RecordService from './pages/admin/RecordService';
-import RecordInventory from './pages/admin/RecordInventory';
-import RecordMedication from './pages/admin/RecordMedication';
-import RecordFacility from './pages/admin/RecordFacility';
-import RecordSchedule from './pages/admin/RecordSchedule';
-import RecordAppointment from './pages/admin/RecordAppointment';
-import RecordAdmin from './pages/admin/RecordAdmin';
+import RecordMember from './pages/admin/member/RecordMember';
+import RecordStaff from './pages/admin/staff/RecordStaff';
+import RecordService from './pages/admin/service/RecordService';
+import RecordInventory from './pages/admin/inventory/RecordInventory';
+import RecordMedication from './pages/admin/inventory/RecordMedication';
+import RecordFacility from './pages/admin/facility/RecordFacility';
+import RecordSchedule from './pages/admin/calender/RecordSchedule';
+import RecordAppointment from './pages/admin/appointment/RecordAppointment';
+import RecordAdmin from './pages/admin/adminhub/RecordAdmin';
 
 
 // Staff pages 

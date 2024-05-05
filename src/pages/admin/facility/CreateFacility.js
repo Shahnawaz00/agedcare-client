@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import '../../styles/styles.css';
-import AdminSidebar from '../../components/admin/FacilityManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/FacilityManagementSidebar';
 
 export default function CreateFacility() {
   const [formData, setFormData] = useState({

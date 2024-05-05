@@ -1,7 +1,6 @@
 import React from 'react';
-import '../../styles/styles.css';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/AdminManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
 
 
 function AdminHub() {

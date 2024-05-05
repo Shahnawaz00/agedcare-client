@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/ServiceManagementSidebar';
-import '../../styles/styles.css';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/ServiceManagementSidebar';
 
 export default function CreateService() {
   const [formData, setFormData] = useState({

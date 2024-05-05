@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import '../../styles/styles.css';
 import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
 
-import AdminNavbar from '../../components/admin/AdminNavbar';
-import AdminSidebar from '../../components/admin/CalendarManagementSidebar';
+import AdminNavbar from '../../../components/admin/AdminNavbar';
+import AdminSidebar from '../../../components/admin/CalendarManagementSidebar';
 
 import Calendar from 'react-calendar';
 
