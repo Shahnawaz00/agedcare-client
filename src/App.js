@@ -104,14 +104,14 @@ function App() {
         <Route path="/admin/create-admin" element={<AdminProtectedRoute><CreateAdmin /></AdminProtectedRoute>} />
         <Route path="/admin/create-facility" element={<AdminProtectedRoute><CreateFacility /></AdminProtectedRoute>} />
 
-        <Route path="/admin/record-staff" element={<AdminProtectedRoute><RecordStaff /></AdminProtectedRoute>} />
-        <Route path="/admin/record-service" element={<AdminProtectedRoute><RecordService /></AdminProtectedRoute>} />
-        <Route path="/admin/record-member" element={<AdminProtectedRoute><RecordMember /></AdminProtectedRoute>} />
-        <Route path="/admin/record-inventory" element={<AdminProtectedRoute><RecordInventory /></AdminProtectedRoute>} />
-        <Route path="/admin/record-medication" element={<AdminProtectedRoute><RecordMedication /></AdminProtectedRoute>} />
-        <Route path="/admin/record-appointment" element={<AdminProtectedRoute><RecordAppointment /></AdminProtectedRoute>} />
-        <Route path="/admin/record-schedule" element={<AdminProtectedRoute><RecordSchedule /></AdminProtectedRoute>} />
-        <Route path="/admin/record-admin" element={<AdminProtectedRoute><RecordAdmin /></AdminProtectedRoute>} />
+        <Route path="/admin/record-staff/:id" element={<AdminProtectedRoute><RecordStaff /></AdminProtectedRoute>} />
+        <Route path="/admin/record-service/:id" element={<AdminProtectedRoute><RecordService /></AdminProtectedRoute>} />
+        <Route path="/admin/record-member/:id" element={<AdminProtectedRoute><RecordMember /></AdminProtectedRoute>} />
+        <Route path="/admin/record-inventory/:id" element={<AdminProtectedRoute><RecordInventory /></AdminProtectedRoute>} />
+        <Route path="/admin/record-medication/:id" element={<AdminProtectedRoute><RecordMedication /></AdminProtectedRoute>} />
+        <Route path="/admin/record-appointment/:id" element={<AdminProtectedRoute><RecordAppointment /></AdminProtectedRoute>} />
+        <Route path="/admin/record-schedule/:id" element={<AdminProtectedRoute><RecordSchedule /></AdminProtectedRoute>} />
+        <Route path="/admin/record-admin/:id" element={<AdminProtectedRoute><RecordAdmin /></AdminProtectedRoute>} />
         <Route path="/admin/record-facility/:id" element={<AdminProtectedRoute><RecordFacility /></AdminProtectedRoute>} />
 
         {/* Staff Routes */}
