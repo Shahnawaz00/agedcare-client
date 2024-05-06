@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/InventoryManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function InventoryList() {
   const [inventory, setInventory] = useState([]);
@@ -27,17 +28,6 @@ export default function InventoryList() {
       setMedications(response.data); // Store medications in state
     } catch (error) {
       console.error('Error fetching medications:', error);
-    }
-  };
-
-  const deleteInventory = async (inventoryId) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/inventory/${inventoryId}`);
-      alert('Inventory item deleted successfully!');
-      fetchInventory();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting inventory item:', error);
-      alert('Failed to delete inventory item. Please try again.');
     }
   };
 
@@ -67,7 +57,7 @@ export default function InventoryList() {
                 <th>Medication Name</th>
                 <th>Quantity</th>
                 <th>Last Restocked</th>
-                <th>Delete</th>
+                <th>Edit</th>
               </tr>
             </thead>
             {inventory.length === 0 ? (
@@ -81,7 +71,7 @@ export default function InventoryList() {
                   <td>{item.quantity}</td>
                   <td>{formatDate(item.last_restocked)}</td>
                   <td>
-                    <button onClick={() => deleteInventory(item.inventory_id)}>Delete</button>
+                    <Link className="edit-link" to={`/admin/record-inventory/${item.inventory_id}`}>Edit</Link>
                   </td>
                 </tr>
               ))}

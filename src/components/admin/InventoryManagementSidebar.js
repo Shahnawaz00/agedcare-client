@@ -14,16 +14,6 @@ export default function AdminSidebar() {
                         Create Inventory
                     </button>
                 </Link>
-                <Link to='/admin/medication-list'>
-                    <button>
-                        Medication List
-                    </button>
-                </Link>
-                <Link to='/admin/create-medication'>
-                    <button>
-                        Create Medication
-                    </button>
-                </Link>
 </div>
   )
 }

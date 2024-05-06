@@ -10,8 +10,8 @@ function AdminNavbar() {
     return (
         <div className="AdminNavbar">
             <div className='headings' >
-                <h1>Aged Care</h1>
-                <h3>User - {user.name}</h3>
+                <h3>Username - {user.name}</h3>
+                <h1>Aged Care Management</h1>
                 <nav role='navigation' >
                 <div id='menuToggle' >
                     <input type='checkbox' />

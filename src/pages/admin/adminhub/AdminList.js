@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function AdminList() {
   const [admins, setAdmins] = useState([]);
@@ -19,17 +20,6 @@ export default function AdminList() {
     }
   };
 
-  const deleteAdmin = async (admin_id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/admin/${admin_id}`);
-      alert('Admin deleted successfully!');
-      fetchAdmins();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting admin:', error);
-      alert('Failed to delete admin. Please try again.');
-    }
-  };
-
   return (  
     <div>
       <AdminNavbar />
@@ -43,7 +33,7 @@ export default function AdminList() {
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
-                <th>Delete</th>
+                <th>Edit</th>
               </tr>
             </thead>
             {admins.length === 0 ? (
@@ -56,7 +46,7 @@ export default function AdminList() {
                   <td>{admin.name}</td>
                   <td>{admin.email}</td>
                   <td>
-                    <button onClick={() => deleteAdmin(admin.admin_id)}>Delete</button>
+                    <Link className="edit-link" to={`/admin/record-admin/${admin.admin_id}`}>Edit</Link>
                   </td>
                 </tr>
               ))}

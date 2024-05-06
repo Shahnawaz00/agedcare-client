@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function StaffList() {
   const [staffList, setStaffList] = useState([]);
@@ -19,25 +20,10 @@ export default function StaffList() {
     }
   };
 
-  const deleteStaff = async (id) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/staff/${id}`);
-      alert('Staff deleted successfully!');
-      fetchStaffList();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting staff member:', error);
-      alert('Failed to delete staff. Please try again.');
-    }
-  };
-
- 
-
   return (
     <div>
       <AdminNavbar />
-
       <div className='adminhub-content' >
-
       <AdminSidebar />
       <div className="list-table-div">
         <h2>Staff List</h2>
@@ -50,7 +36,7 @@ export default function StaffList() {
               <th>Qualifications</th>
               <th>Role</th>
               <th>Availability</th>
-              <th>Delete</th>
+              <th>Edit</th>
             </tr>
           </thead>
           {staffList.length === 0 ? (
@@ -66,7 +52,7 @@ export default function StaffList() {
                 <td>{staff.role}</td>
                 <td>{staff.availability}</td>
                 <td>
-                    <button onClick={() => deleteStaff(staff.staff_id)}>Delete</button>
+                  <Link className="edit-link" to={`/admin/record-staff/${staff.staff_id}`}>Edit</Link>
                 </td>
               </tr>
             ))}
