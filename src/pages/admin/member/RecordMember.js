@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/MemberManagementSidebar';
 
 export default function RecordMember() {
     const [member, setMember] = useState(null);
@@ -28,7 +27,7 @@ export default function RecordMember() {
                 setMember(response.data);
                 setFormData({
                     name: response.data.name,
-                    date_of_birth: new Date(response.data.date_of_birth).toISOString().substring(0, 10),
+                    date_of_birth: response.data.date_of_birth,
                     gender: response.data.gender,
                     emergency_contact: response.data.emergency_contact,
                     next_of_kin: response.data.next_of_kin,
@@ -51,22 +50,27 @@ export default function RecordMember() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/members/${id}`, formData);
+            await axios.patch(`http://localhost:5000/api/members/${id}`, formData);
             alert('Member updated successfully!');
             setEditing(false);
-            navigate('/admin/member-list');
+            navigate('/admin/patient-list');
         } catch (error) {
             console.error('Error updating member:', error);
             alert('Failed to update member.');
         }
     };
+    // Function to convert SQL datetime format to a readable date
+    const formatDate = (dateString) => {
+    const date = new Date(dateString);
+    return date.toLocaleDateString();
+  };
 
     const deleteMember = async () => {
         if (window.confirm("Are you sure you want to delete this member?")) {
             try {
                 await axios.delete(`http://localhost:5000/api/members/${id}`);
                 alert('Member deleted successfully!');
-                navigate('/admin/member-list');
+                navigate('/admin/patient-list');
             } catch (error) {
                 console.error('Error deleting member:', error);
                 alert('Failed to delete member. Please try again.');
@@ -82,7 +86,6 @@ export default function RecordMember() {
         <div>
             <AdminNavbar />
             <div className='adminhub-content'>
-                <AdminSidebar />
                 <div className="create-user-container">
                     <div className='create-user-container-top-div'>
                         <h2>Member Details</h2>
@@ -99,7 +102,7 @@ export default function RecordMember() {
                                         <th>Emergency Contact</th>
                                         <th>Next of Kin</th>
                                         <th>Mailing Address</th>
-                                        <th>Allergies/Diet</th>
+                                        <th>Allergies</th>
                                         <th>Current Medications</th>
                                         <th>General Practitioner</th>
                                     </tr>
@@ -107,7 +110,7 @@ export default function RecordMember() {
                                 <tbody>
                                     <tr>
                                         <td>{member.name}</td>
-                                        <td>{new Date(member.date_of_birth).toLocaleDateString()}</td>
+                                        <td>{formatDate(member.date_of_birth)}</td>
                                         <td>{member.gender}</td>
                                         <td>{member.emergency_contact}</td>
                                         <td>{member.next_of_kin}</td>

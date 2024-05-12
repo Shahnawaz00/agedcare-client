@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
 import { Link } from 'react-router-dom';
+import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
 
 export default function AdminList() {
   const [admins, setAdmins] = useState([]);
@@ -30,7 +30,6 @@ export default function AdminList() {
           <table className="list-table">
             <thead>
               <tr>
-                <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Edit</th>
@@ -42,7 +41,6 @@ export default function AdminList() {
                 <tbody>
               {admins.map(admin => (
                 <tr key={admin.admin_id}>
-                  <td>{admin.admin_id}</td>
                   <td>{admin.name}</td>
                   <td>{admin.email}</td>
                   <td>

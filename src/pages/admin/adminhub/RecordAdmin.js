@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
 
 export default function RecordAdmin() {
     const [admin, setAdmin] = useState(null);
     const [editing, setEditing] = useState(false);
     const [formData, setFormData] = useState({
         name: '',
-        email: ''
+        email: '',
     });
     const { id } = useParams();
     const navigate = useNavigate();
@@ -21,7 +20,7 @@ export default function RecordAdmin() {
                 setAdmin(response.data);
                 setFormData({
                     name: response.data.name,
-                    email: response.data.email
+                    email: response.data.email,
                 });
             } catch (error) {
                 console.error('Error fetching admin details:', error);
@@ -37,7 +36,8 @@ export default function RecordAdmin() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/admin/${id}`, formData);
+            // Using PATCH request for partial updates
+            await axios.patch(`http://localhost:5000/api/admin/${id}`, formData);
             alert('Admin updated successfully!');
             setEditing(false);
             navigate('/admin/admin-list');
@@ -46,6 +46,7 @@ export default function RecordAdmin() {
             alert('Failed to update admin.');
         }
     };
+    
 
     const deleteAdmin = async () => {
         if (window.confirm("Are you sure you want to delete this admin?")) {
@@ -68,7 +69,6 @@ export default function RecordAdmin() {
         <div>
             <AdminNavbar />
             <div className='adminhub-content'>
-                <AdminSidebar />
                 <div className="create-user-container">
                     <div className='create-user-container-top-div'>
                         <h2>Admin Details</h2>

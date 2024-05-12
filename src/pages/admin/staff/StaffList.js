@@ -30,7 +30,6 @@ export default function StaffList() {
         <table className="list-table">
           <thead>
             <tr>
-              <th>ID</th>
               <th>Name</th>
               <th>Contact Information</th>
               <th>Qualifications</th>
@@ -45,7 +44,6 @@ export default function StaffList() {
           <tbody>
             {staffList.map(staff => (
               <tr key={staff.staff_id}>
-                <td>{staff.staff_id}</td>
                 <td>{staff.name}</td>
                 <td>{staff.contact_information}</td>
                 <td>{staff.qualifications}</td>
