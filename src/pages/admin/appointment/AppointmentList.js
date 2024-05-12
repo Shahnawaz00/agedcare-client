@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/AppointmentManagementSidebar';
+import { Link } from 'react-router-dom';  // Ensure this is needed, if not, remove it
 
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
@@ -40,63 +41,25 @@ export default function AppointmentList() {
     const date = new Date(dateString);
     return date.toISOString().split('T')[0];
   };
+
   const handleSearch = (event) => {
     setSearchTerm(event.target.value);
   };
 
-  const filteredAppointments = appointments.filter(appointment =>
+  const filteredAppointments = searchTerm.length > 0 ? appointments.filter(appointment =>
     appointment.member_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     appointment.staff_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     appointment.service_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     appointment.facility_name.toLowerCase().includes(searchTerm.toLowerCase()) ||
-    appointment.appointment_date.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    formatDate(appointment.appointment_date).includes(searchTerm.toLowerCase()) ||
     appointment.appointment_time.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  ) : appointments;
 
   return (
     <div>
       <AdminNavbar />
       <div className='adminhub-content'>
         <AdminSidebar />
-    
-      <div className="list-table-div">
-        <h2>Appointment List</h2>
-        <table className="list-table">
-          <thead>
-            <tr>
-              <th>Appointment ID</th>
-              <th>Member Name</th>
-              <th>Staff Name</th>
-              <th>Service Type</th>
-              <th>Facility Room Number</th>
-              <th>Appointment Date</th>
-              <th>Appointment Time</th>
-              {/* <th>Notes</th> */}
-            </tr>
-          </thead>
-          { loading ? (
-              <div className='loading' ></div>
-              ) : (appointments.length === 0 ? (
-                <p>No appointments</p>
-            ) : (
-                <tbody>
-            {appointments.map(appointment => (
-              <tr key={appointment.appointment_id}>
-                <td>{appointment.appointment_id}</td>
-                <td>{appointment.member_name}</td>
-                <td>{appointment.staff_name}</td>
-                <td>{appointment.service_name}</td>
-                <td>{appointment.facility_name}</td>
-                <td>{formatDate(appointment.appointment_date)}</td>
-                <td>{appointment.appointment_time}</td>
-                {/* <td>{appointment.notes}</td> */}
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
-  )
-            
         <div className="list-table-div">
           <h2>Appointment List</h2>
           <input
@@ -106,38 +69,42 @@ export default function AppointmentList() {
             onChange={handleSearch}
             className="search-bar"
           />
-          <table className="list-table">
-            <thead>
-              <tr>
-                <th>Appointment ID</th>
-                <th>Member Name</th>
-                <th>Staff Name</th>
-                <th>Service Type</th>
-                <th>Facility Room Number</th>
-                <th>Appointment Date</th>
-                <th>Appointment Time</th>
-                {/* <th>Notes</th> */}
-              </tr>
-            </thead>
-            {filteredAppointments.length === 0 ? (
-              <div className='loading'></div>
-            ) : (
+          {loading ? (
+            <p>Loading...</p>
+          ) : (
+            <table className="list-table">
+              <thead>
+                <tr>
+                  <th>Appointment ID</th>
+                  <th>Member Name</th>
+                  <th>Staff Name</th>
+                  <th>Service Type</th>
+                  <th>Facility Room Number</th>
+                  <th>Appointment Date</th>
+                  <th>Appointment Time</th>
+                  {/* <th>Notes</th> */}
+                </tr>
+              </thead>
               <tbody>
-                {filteredAppointments.map(appointment => (
+                {filteredAppointments.length > 0 ? filteredAppointments.map(appointment => (
                   <tr key={appointment.appointment_id}>
                     <td>{appointment.appointment_id}</td>
                     <td>{appointment.member_name}</td>
                     <td>{appointment.staff_name}</td>
                     <td>{appointment.service_name}</td>
                     <td>{appointment.facility_name}</td>
-                    <td>{appointment.appointment_date}</td>
+                    <td>{formatDate(appointment.appointment_date)}</td>
                     <td>{appointment.appointment_time}</td>
                     {/* <td>{appointment.notes}</td> */}
                   </tr>
-                ))}
+                )) : (
+                  <tr>
+                    <td colSpan="7">No appointments found</td>
+                  </tr>
+                )}
               </tbody>
-            )}
-          </table>
+            </table>
+          )}
         </div>
       </div>
     </div>

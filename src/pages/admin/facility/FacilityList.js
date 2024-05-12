@@ -73,7 +73,6 @@ export default function FacilityList() {
                   <td>{facility.date_reserved ? formatDate(facility.date_reserved) : 'N/A'}</td>
                   <td>
                   <Link className="edit-link" to={`/admin/record-facility/${facility.facility_id}`}>Edit</Link>
-                    <button onClick={() => deleteFacility(facility.facility_id)}>Delete</button>
                   </td>
                 </tr>
               ))}

@@ -9,63 +9,22 @@ export default function StaffList() {
   const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
+    const fetchStaffList = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/staff');
+        setStaffList(response.data);
+      } catch (error) {
+        console.error('Error fetching staff list:', error);
+      }
+    };
     fetchStaffList();
   }, []);
 
-  const fetchStaffList = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/staff');
-      setStaffList(response.data);
-    } catch (error) {
-      console.error('Error fetching staff list:', error);
-    }
-  };
-
-  return (
-    <div>
-      <AdminNavbar />
-      <div className='adminhub-content' >
-      <AdminSidebar />
-      <div className="list-table-div">
-        <h2>Staff List</h2>
-        <table className="list-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Contact Information</th>
-              <th>Qualifications</th>
-              <th>Role</th>
-              <th>Availability</th>
-              <th>Edit</th>
-            </tr>
-          </thead>
-          {staffList.length === 0 ? (
-                <div className='loading' ></div>
-            ) : (
-          <tbody>
-            {staffList.map(staff => (
-              <tr key={staff.staff_id}>
-                <td>{staff.staff_id}</td>
-                <td>{staff.name}</td>
-                <td>{staff.contact_information}</td>
-                <td>{staff.qualifications}</td>
-                <td>{staff.role}</td>
-                <td>{staff.availability}</td>
-                <td>
-                  <Link className="edit-link" to={`/admin/record-staff/${staff.staff_id}`}>Edit</Link>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-          )}
-        </table>
-      </div>
   const deleteStaff = async (id) => {
     try {
       await axios.delete(`http://localhost:5000/api/staff/${id}`);
       alert('Staff deleted successfully!');
-      fetchStaffList();  // Refresh the list after deletion
+      setStaffList(staffList.filter(staff => staff.staff_id !== id));  // Optimistic update
     } catch (error) {
       console.error('Error deleting staff member:', error);
       alert('Failed to delete staff. Please try again.');
@@ -107,11 +66,11 @@ export default function StaffList() {
                 <th>Qualifications</th>
                 <th>Role</th>
                 <th>Availability</th>
-                <th>Delete</th>
+                <th>Edit/Delete</th>
               </tr>
             </thead>
             <tbody>
-              {filteredStaffList.map(staff => (
+              {staffList.length > 0 ? filteredStaffList.map(staff => (
                 <tr key={staff.staff_id}>
                   <td>{staff.staff_id}</td>
                   <td>{staff.name}</td>
@@ -120,10 +79,16 @@ export default function StaffList() {
                   <td>{staff.role}</td>
                   <td>{staff.availability}</td>
                   <td>
+                    <Link className="edit-link" to={`/admin/record-staff/${staff.staff_id}`}>Edit</Link>
+                    &nbsp;|&nbsp;
                     <button onClick={() => deleteStaff(staff.staff_id)}>Delete</button>
                   </td>
                 </tr>
-              ))}
+              )) : (
+                <tr>
+                  <td colSpan="7" style={{ textAlign: 'center' }}>No staff found</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>

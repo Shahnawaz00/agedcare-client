@@ -41,7 +41,7 @@ export default function AdminList() {
     admin.email.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  return (  
+  return (
     <div>
       <AdminNavbar />
       <div className='adminhub-content'>
@@ -64,13 +64,8 @@ export default function AdminList() {
                 <th>Edit</th>
               </tr>
             </thead>
-            {admins.length === 0 ? (
-                <div className='loading' ></div>
-            ) : (
-                <tbody>
-              {admins.map(admin => (
             <tbody>
-              {filteredAdmins.map(admin => (
+              {filteredAdmins.length > 0 ? filteredAdmins.map(admin => (
                 <tr key={admin.admin_id}>
                   <td>{admin.admin_id}</td>
                   <td>{admin.name}</td>
@@ -79,10 +74,12 @@ export default function AdminList() {
                     <Link className="edit-link" to={`/admin/record-admin/${admin.admin_id}`}>Edit</Link>
                   </td>
                 </tr>
-              ))}
-              
-              </tbody>
-            )}
+              )) : (
+                <tr>
+                  <td colSpan="4" style={{ textAlign: 'center' }}>No admins found or loading data</td>
+                </tr>
+              )}
+            </tbody>
           </table>
         </div>
       </div>
