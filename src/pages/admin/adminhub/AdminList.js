@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 export default function AdminList() {
   const [admins, setAdmins] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchAdmins();
@@ -20,6 +21,26 @@ export default function AdminList() {
     }
   };
 
+  const deleteAdmin = async (admin_id) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/admin/${admin_id}`);
+      alert('Admin deleted successfully!');
+      fetchAdmins();  // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting admin:', error);
+      alert('Failed to delete admin. Please try again.');
+    }
+  };
+
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredAdmins = admins.filter(admin =>
+    admin.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
+    admin.email.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (  
     <div>
       <AdminNavbar />
@@ -27,6 +48,13 @@ export default function AdminList() {
         <AdminSidebar />
         <div className="list-table-div">
           <h2>Admin List</h2>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-bar"
+          />
           <table className="list-table">
             <thead>
               <tr>
@@ -41,6 +69,8 @@ export default function AdminList() {
             ) : (
                 <tbody>
               {admins.map(admin => (
+            <tbody>
+              {filteredAdmins.map(admin => (
                 <tr key={admin.admin_id}>
                   <td>{admin.admin_id}</td>
                   <td>{admin.name}</td>

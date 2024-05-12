@@ -812,3 +812,20 @@ button:hover {
 /* @media (max-width: 480px) {
 
 } */
+h1, h2, h3, h4, h5, h6 {
+font-family: 'Open Sans', Arial, sans-serif;
+}
+li {
+list-style-type: none;
+}
+a {
+text-decoration: none;
+}
+
+
+.search-bar{
+  float: right;
+  padding:10px;
+  border-radius: 20px;
+  border:2px solid #ccc;
+}

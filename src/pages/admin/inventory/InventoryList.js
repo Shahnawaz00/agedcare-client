@@ -7,6 +7,7 @@ import { Link } from 'react-router-dom';
 export default function InventoryList() {
   const [inventory, setInventory] = useState([]);
   const [medications, setMedications] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     fetchInventory();
@@ -32,24 +33,51 @@ export default function InventoryList() {
   };
 
   // Function to convert SQL datetime format to a readable date
+  const deleteInventory = async (inventoryId) => {
+    try {
+      await axios.delete(`http://localhost:5000/api/inventory/${inventoryId}`);
+      alert('Inventory item deleted successfully!');
+      fetchInventory();  // Refresh the list after deletion
+    } catch (error) {
+      console.error('Error deleting inventory item:', error);
+      alert('Failed to delete inventory item. Please try again.');
+    }
+  };
+
   const formatDate = (dateString) => {
     const date = new Date(dateString);
     return date.toLocaleDateString();
   };
 
-  // Helper function to find medication name by ID
   const getMedicationName = (medicationId) => {
     const medication = medications.find(med => med.medication_id === medicationId);
     return medication ? medication.medication_name : 'Unknown';
   };
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const filteredInventory = inventory.filter(item =>
+    getMedicationName(item.medication_id).toLowerCase().includes(searchTerm.toLowerCase()) ||
+    item.quantity.toString().includes(searchTerm.toLowerCase()) ||
+    formatDate(item.last_restocked).toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <div>
       <AdminNavbar />
-      <div className='adminhub-content' >
+      <div className='adminhub-content'>
         <AdminSidebar />
         <div className="list-table-div">
           <h2>Inventory List</h2>
+          <input
+            type="text"
+            placeholder="Search..."
+            value={searchTerm}
+            onChange={handleSearch}
+            className="search-bar"
+          />
           <table className="list-table">
             <thead>
               <tr>
@@ -64,7 +92,7 @@ export default function InventoryList() {
                 <div className='loading' ></div>
             ) : (
             <tbody>
-              {inventory.map(item => (
+              {filteredInventory.map(item => (
                 <tr key={item.inventory_id}>
                   <td>{item.inventory_id}</td>
                   <td>{getMedicationName(item.medication_id)}</td>
