@@ -52,11 +52,13 @@ import Calendar from './pages/admin/appointment/Calendar';
 
 // Staff pages 
 import StaffHub from './pages/staff/StaffHub';
-
 import StaffCalendar from './pages/staff/StaffCalendar';
 import StaffAppointmentList from './pages/staff/StaffAppointmentList';
-import StaffPatientList from './pages/staff/StaffPatientList';
 import StaffAccount from './pages/staff/StaffAccount';
+import StaffInventoryList from './pages/staff/StaffInventoryList';
+import ViewFacility from './pages/staff/ViewFacility';
+import ViewMember from './pages/staff/ViewMember';
+import ViewService from './pages/staff/ViewService';
 
 function App() {
   return (
@@ -106,13 +108,13 @@ function App() {
         {/* Staff Routes */}
         <Route path="/staff" element={<StaffProtectedRoute><StaffHub /></StaffProtectedRoute>} />
         <Route path="/staff/staff-calendar" element={<StaffProtectedRoute><StaffCalendar /></StaffProtectedRoute>} />
-        <Route path="/staff/staff-create-member" element={<StaffProtectedRoute><div>Create Member</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-patient-list" element={<StaffProtectedRoute> <StaffPatientList/> </StaffProtectedRoute>} />
-        <Route path="/staff/staff-inventory" element={<StaffProtectedRoute><div>Inventory</div></StaffProtectedRoute>} />
-        <Route path="/staff/staff-service-list" element={<StaffProtectedRoute><div>Service list</div></StaffProtectedRoute>} />
-        <Route path="/staff/create-appointment" element={<StaffProtectedRoute><CreateAppointment /></StaffProtectedRoute>} />
         <Route path="/staff/staff-appointment-list" element={<StaffProtectedRoute><StaffAppointmentList /></StaffProtectedRoute>} />
         <Route path="/staff/account" element={<StaffProtectedRoute><StaffAccount /></StaffProtectedRoute>} />
+        <Route path="/staff/staff-inventory-list" element={<StaffProtectedRoute><StaffInventoryList /></StaffProtectedRoute>} />
+        <Route path="/staff/view-member/:id" element={<StaffProtectedRoute><ViewMember /></StaffProtectedRoute>} />
+        <Route path="/staff/view-service/:id" element={<StaffProtectedRoute><ViewService /></StaffProtectedRoute>} />
+        <Route path="/staff/view-facility/:id" element={<StaffProtectedRoute><ViewFacility /></StaffProtectedRoute>} />
+
       </Routes>
         {/* <RouterProvider router={router} /> */}
       </AuthProvider>
