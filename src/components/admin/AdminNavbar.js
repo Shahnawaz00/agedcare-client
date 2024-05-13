@@ -10,8 +10,8 @@ function AdminNavbar() {
     return (
         <div className="AdminNavbar">
             <div className='headings' >
-                <h1>Aged Care</h1>
-                <h3>User - {user.name}</h3>
+                <h3>Username - {user.name}</h3>
+                <h1>Aged Care Management</h1>
                 <nav role='navigation' >
                 <div id='menuToggle' >
                     <input type='checkbox' />
@@ -27,20 +27,6 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
-                        <Link to="/admin/calendar">
-                            <button>
-                                Calendar
-                            </button>
-                        </Link>
-                    </li>   
-                    <li>
-                        <Link to="/admin/appointment-management">
-                            <button>
-                                Appointment Management
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
                         <Link to="/admin/staff-management">
                             <button>
                                 Staff Management
@@ -55,6 +41,20 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/admin/appointment-management">
+                            <button>
+                                Appointment Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/inventory-management">
+                            <button>
+                                Inventory Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/admin/facility-management">
                             <button>
                                 Facility Management
@@ -65,13 +65,6 @@ function AdminNavbar() {
                         <Link to="/admin/service-management">
                             <button>
                                 Service Management
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/inventory-management">
-                            <button>
-                                Inventory Management
                             </button>
                         </Link>
                     </li>
@@ -87,24 +80,10 @@ function AdminNavbar() {
 
             <nav role='navigation' className='desktop-nav' >
                  <ul>
-                    <li>
+                 <li>
                         <Link to={'/admin'}>
                             <button>
                                 Admin Hub
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/calendar">
-                            <button>
-                                Calendar
-                            </button>
-                        </Link>
-                    </li>   
-                    <li>
-                        <Link to="/admin/appointment-management">
-                            <button>
-                                Appointment Management
                             </button>
                         </Link>
                     </li>
@@ -123,6 +102,20 @@ function AdminNavbar() {
                         </Link>
                     </li>
                     <li>
+                        <Link to="/admin/appointment-management">
+                            <button>
+                                Appointment Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
+                        <Link to="/admin/inventory-management">
+                            <button>
+                                Inventory Management
+                            </button>
+                        </Link>
+                    </li>
+                    <li>
                         <Link to="/admin/facility-management">
                             <button>
                                 Facility Management
@@ -133,13 +126,6 @@ function AdminNavbar() {
                         <Link to="/admin/service-management">
                             <button>
                                 Service Management
-                            </button>
-                        </Link>
-                    </li>
-                    <li>
-                        <Link to="/admin/inventory-management">
-                            <button>
-                                Inventory Management
                             </button>
                         </Link>
                     </li>

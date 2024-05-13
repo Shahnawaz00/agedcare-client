@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/ServiceManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function ServiceList() {
   const [services, setServices] = useState([]);
@@ -19,18 +20,6 @@ export default function ServiceList() {
     }
   };
 
-  const deleteService = async (serviceId) => {
-    try {
-      await axios.delete(`http://localhost:5000/api/services/${serviceId}`);
-      alert('Service deleted successfully!');
-      fetchServices();  // Refresh the list after deletion
-    } catch (error) {
-      console.error('Error deleting service:', error);
-      alert('Failed to delete service. Please try again.');
-    }
-  };
-
-
   return (
     <div>
       <AdminNavbar />
@@ -44,7 +33,7 @@ export default function ServiceList() {
               <th>Service Type</th>
               <th>Duration</th>
               <th>Description</th>
-              <th>Delete</th>
+              <th>Edit</th>
 
             </tr>
           </thead>
@@ -59,7 +48,7 @@ export default function ServiceList() {
                 <td>{service.duration}</td>
                 <td>{service.description}</td>
                 <td>
-                    <button onClick={() => deleteService(service.service_id)}>Delete</button>
+                  <Link className="edit-link" to={`/admin/record-service/${service.service_id}`}>Edit</Link>
                 </td>
               </tr>
             ))}

@@ -3,7 +3,7 @@ import 'react-calendar/dist/Calendar.css';
 import axios from 'axios';
 
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/CalendarManagementSidebar';
+import AdminSidebar from '../../../components/admin/AppointmentManagementSidebar';
 
 import Calendar from 'react-calendar';
 
@@ -88,7 +88,7 @@ function AdminHub() {
                 <th>Service</th>
                 <th>Facility</th>
                 <th>Appointment Time</th>
-                {/* <th>Notes</th> */}
+                <th>Notes</th>
               </tr>
             </thead>
             { loading ? (
@@ -106,7 +106,7 @@ function AdminHub() {
                   <td>{appointment.service_name}</td>
                   <td>{appointment.facility_name}</td>
                   <td>{appointment.appointment_time}</td>
-                  {/* <td>{appointment.notes}</td> */}
+                  <td>{appointment.notes}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,7 +1,7 @@
 import React from 'react'
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/MemberManagementSidebar';
-import { Link } from 'react-router-dom';
+
 export default function MemberManagement() {
   return (
     <div>
@@ -10,8 +10,6 @@ export default function MemberManagement() {
             <AdminSidebar />
             <div>
                 <h1 className='adminhub-heading' >Member Management</h1>
-               
-
             </div>
         </div>
     </div>

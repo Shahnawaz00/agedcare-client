@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function StaffList() {
   const [staffList, setStaffList] = useState([]);

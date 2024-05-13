@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/AppointmentManagementSidebar';
+import { Link } from 'react-router-dom';
 
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
@@ -50,14 +51,14 @@ export default function AppointmentList() {
         <table className="list-table">
           <thead>
             <tr>
-              <th>Appointment ID</th>
               <th>Member Name</th>
               <th>Staff Name</th>
               <th>Service Type</th>
               <th>Facility Room Number</th>
               <th>Appointment Date</th>
               <th>Appointment Time</th>
-              {/* <th>Notes</th> */}
+              <th>Notes</th>
+         
             </tr>
           </thead>
           { loading ? (
@@ -68,14 +69,14 @@ export default function AppointmentList() {
                 <tbody>
             {appointments.map(appointment => (
               <tr key={appointment.appointment_id}>
-                <td>{appointment.appointment_id}</td>
                 <td>{appointment.member_name}</td>
                 <td>{appointment.staff_name}</td>
                 <td>{appointment.service_name}</td>
                 <td>{appointment.facility_name}</td>
                 <td>{formatDate(appointment.appointment_date)}</td>
                 <td>{appointment.appointment_time}</td>
-                {/* <td>{appointment.notes}</td> */}
+                <td>{appointment.notes}</td>
+                
               </tr>
             ))}
           </tbody>

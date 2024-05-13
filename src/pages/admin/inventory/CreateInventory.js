@@ -12,23 +12,6 @@ export default function CreateInventory() {
     last_restocked: '',
   });
 
-  // State to store the list of medications
-  const [medications, setMedications] = useState([]);
-
-  // Fetch medications when the component mounts
-  useEffect(() => {
-    const fetchMedications = async () => {
-      try {
-        const response = await axios.get('http://localhost:5000/api/medication');
-        setMedications(response.data);  // Store fetched medications in state
-      } catch (error) {
-        console.error('Error fetching medications:', error);
-      }
-    };
-
-    fetchMedications();
-  }, []);
-
   const handleChange = e => {
     const { name, value } = e.target;
     setFormData(prevState => ({

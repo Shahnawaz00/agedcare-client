@@ -43,7 +43,7 @@ function StaffNavbar() {
                     <li>
                         <Link to="/staff/staff-patient-list">
                             <button>
-                                Patient List
+                                Patient
                             </button>
                         </Link>
                     </li>
@@ -83,14 +83,14 @@ function StaffNavbar() {
                     <li>
                         <Link to="/staff/staff-appointment-list">
                             <button>
-                                Appointment List
+                                Appointment 
                             </button>
                         </Link>
                     </li>
                     <li>
-                        <Link to="/staff/staff-patient-list">
+                        <Link to="/staff/staff-inventory-list">
                             <button>
-                                Patient List
+                                Inventory 
                             </button>
                         </Link>
                     </li>
