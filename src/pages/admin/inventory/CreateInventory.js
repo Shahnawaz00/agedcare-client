@@ -5,9 +5,11 @@ import AdminSidebar from '../../../components/admin/InventoryManagementSidebar';
 
 export default function CreateInventory() {
   const [formData, setFormData] = useState({
-    medicationId: '',
+    medication_id: '',
+    category: '',
+    name: '',
     quantity: '',
-    lastRestocked: '',
+    last_restocked: '',
   });
 
   // State to store the list of medications
@@ -42,9 +44,11 @@ export default function CreateInventory() {
       alert('Inventory created successfully!');
       // Reset the form
       setFormData({
-        medicationId: '',
+        medication_id: '',
+        category: '',
+        name: '',
         quantity: '',
-        lastRestocked: '',
+        last_restocked: '',
       });
     } catch (error) {
       console.error('Error creating inventory:', error);
@@ -57,19 +61,35 @@ export default function CreateInventory() {
       <AdminNavbar />
       <div className='adminhub-content'>
         <AdminSidebar />
-        <div className="create-member-container">
+        <div className="create-user-container">
           <h2>Create Inventory</h2>
           <form className="create-user-form" onSubmit={handleSubmit}>
-            <select name="medicationId" value={formData.medicationId} onChange={handleChange} required>
+            <input type="text" name='category' placeholder='Category' value={formData.category} onChange={handleChange} required />
+            {
+              (formData.category === 'medication' ? (
+                <select name='medication_id' value={formData.medication_id} onChange={handleChange} required>
+                  <option value=''>Select Medication</option>
+                  {medications.map((medication) => (
+                    <option key={medication.medication_id} value={medication.medication_id}>
+                      {medication.medication_name}
+                    </option>
+                  ))}
+                </select>
+               ) :  (
+                <input type='text' name='name' placeholder='Name' value={formData.name} onChange={handleChange} required />
+               ))
+            }
+            {/* <select name="medication_id" value={formData.medication_id} onChange={handleChange} required>
               <option value="">Select Medication</option>
               {medications.map((medication) => (
                 <option key={medication.medication_id} value={medication.medication_id}>
                   {medication.medication_name}
                 </option>
               ))}
-            </select>
+            </select> */}
             <input type="number" name="quantity" placeholder="Quantity" value={formData.quantity} onChange={handleChange} required />
-            <input type="date" name="lastRestocked" placeholder="Last Restocked" value={formData.lastRestocked} onChange={handleChange} required />
+            <label htmlFor="last_restocked">Date last restocked:</label>
+            <input type="date" name="last_restocked" placeholder="Last Restocked" value={formData.last_restocked} onChange={handleChange} required />
             <button type="submit">Add Inventory</button>
           </form>
         </div>

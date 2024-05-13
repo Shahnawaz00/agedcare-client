@@ -30,50 +30,65 @@ export default function StaffList() {
     }
   };
 
- 
+  // Function to convert SQL datetime format to a readable date
+const formatDate = (dateString) => {
+  const date = new Date(dateString);
+  return date.toLocaleDateString();
+};
+
 
   return (
     <div>
       <AdminNavbar />
-
-      <div className='adminhub-content' >
-
-      <AdminSidebar />
-      <div className="list-table-div">
-        <h2>Staff List</h2>
-        <table className="list-table">
-          <thead>
-            <tr>
-              <th>ID</th>
-              <th>Name</th>
-              <th>Contact Information</th>
-              <th>Qualifications</th>
-              <th>Role</th>
-              <th>Availability</th>
-              <th>Delete</th>
-            </tr>
-          </thead>
-          {staffList.length === 0 ? (
-                <div className='loading' ></div>
-            ) : (
-          <tbody>
-            {staffList.map(staff => (
-              <tr key={staff.staff_id}>
-                <td>{staff.staff_id}</td>
-                <td>{staff.name}</td>
-                <td>{staff.contact_information}</td>
-                <td>{staff.qualifications}</td>
-                <td>{staff.role}</td>
-                <td>{staff.availability}</td>
-                <td>
-                    <button onClick={() => deleteStaff(staff.staff_id)}>Delete</button>
-                </td>
+      <div className='adminhub-content'>
+        <AdminSidebar />
+        <div className="list-table-div">
+          <h2>Staff List</h2>
+          <table className="list-table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Last Name</th>
+                <th>Email</th>
+                {/* <th>Contact Information</th> */}
+                <th>Phone Number</th>
+                <th>Mailing Address</th>
+                {/* <th>Billing Address</th> */}
+                {/* <th>Emergency Contact</th> */}
+                <th>Date of Birth</th>
+                <th>Gender</th>
+                <th>Qualifications</th>
+                {/* <th>Role</th> */}
+                <th>Availability</th>
+                {/* <th>Delete</th> */}
               </tr>
-            ))}
-          </tbody>
-          )}
-        </table>
-      </div>
+            </thead>
+            <tbody>
+              {staffList.map(staff => (
+                <tr key={staff.staff_id}>
+                  <td>{staff.staff_id}</td>
+                  <td>{staff.name}</td>
+                  <td>{staff.lname}</td>
+                  <td>{staff.email}</td>
+                  {/* <td>{staff.contact_information}</td> */}
+                  <td>{staff.phoneNo}</td>
+                  <td>{staff.mailing_address}</td>
+                  {/* <td>{staff.billing_address}</td> */}
+                  {/* <td>{staff.emergency_contact}</td> */}
+                  <td>{formatDate(staff.date_of_birth)}</td>
+                  <td>{staff.gender}</td>
+                  <td>{staff.qualifications}</td>
+                  {/* <td>{staff.role}</td> */}
+                  <td>{staff.availability}</td>
+                  {/* <td>
+                    <button onClick={() => deleteStaff(staff.staff_id)}>Delete</button>
+                  </td> */}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   );

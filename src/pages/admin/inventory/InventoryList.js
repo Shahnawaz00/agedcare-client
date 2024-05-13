@@ -64,10 +64,11 @@ export default function InventoryList() {
             <thead>
               <tr>
                 <th>Inventory ID</th>
-                <th>Medication Name</th>
+                <th>Category</th>
+                <th>Name</th>
                 <th>Quantity</th>
                 <th>Last Restocked</th>
-                <th>Delete</th>
+                {/* <th>Delete</th> */}
               </tr>
             </thead>
             {inventory.length === 0 ? (
@@ -77,12 +78,13 @@ export default function InventoryList() {
               {inventory.map(item => (
                 <tr key={item.inventory_id}>
                   <td>{item.inventory_id}</td>
-                  <td>{getMedicationName(item.medication_id)}</td>
+                  <td>{item.category}</td>
+                  <td>{item.medication_id ? getMedicationName(item.medication_id): item.name}</td>
                   <td>{item.quantity}</td>
                   <td>{formatDate(item.last_restocked)}</td>
-                  <td>
+                  {/* <td>
                     <button onClick={() => deleteInventory(item.inventory_id)}>Delete</button>
-                  </td>
+                  </td> */}
                 </tr>
               ))}
             </tbody>
