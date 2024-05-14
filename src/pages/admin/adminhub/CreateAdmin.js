@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/AdminManagementSidebar';
+import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
 
 export default function CreateAdmin() {
   const [formData, setFormData] = useState({

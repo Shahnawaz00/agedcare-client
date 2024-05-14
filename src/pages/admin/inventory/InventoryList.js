@@ -11,7 +11,6 @@ export default function InventoryList() {
 
   useEffect(() => {
     fetchInventory();
-    fetchMedications();
   }, []);
 
   const fetchInventory = async () => {
@@ -23,14 +22,7 @@ export default function InventoryList() {
     }
   };
 
-  const fetchMedications = async () => {
-    try {
-      const response = await axios.get('http://localhost:5000/api/medication');
-      setMedications(response.data); // Store medications in state
-    } catch (error) {
-      console.error('Error fetching medications:', error);
-    }
-  };
+ 
 
   // Function to convert SQL datetime format to a readable date
   const deleteInventory = async (inventoryId) => {
@@ -82,10 +74,11 @@ export default function InventoryList() {
             <thead>
               <tr>
                 <th>Inventory ID</th>
-                <th>Medication Name</th>
+                <th>Category</th>
+                <th>Name</th>
                 <th>Quantity</th>
                 <th>Last Restocked</th>
-                <th>Edit</th>
+                {/* <th>Delete</th> */}
               </tr>
             </thead>
             {inventory.length === 0 ? (
@@ -95,12 +88,13 @@ export default function InventoryList() {
               {filteredInventory.map(item => (
                 <tr key={item.inventory_id}>
                   <td>{item.inventory_id}</td>
-                  <td>{getMedicationName(item.medication_id)}</td>
+                  <td>{item.category}</td>
+                  <td>{item.medication_id ? getMedicationName(item.medication_id): item.name}</td>
                   <td>{item.quantity}</td>
                   <td>{formatDate(item.last_restocked)}</td>
-                  <td>
-                    <Link className="edit-link" to={`/admin/record-inventory/${item.inventory_id}`}>Edit</Link>
-                  </td>
+                  {/* <td>
+                    <button onClick={() => deleteInventory(item.inventory_id)}>Delete</button>
+                  </td> */}
                 </tr>
               ))}
             </tbody>

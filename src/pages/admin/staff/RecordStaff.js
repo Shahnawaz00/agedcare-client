@@ -2,13 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
-import AdminSidebar from '../../../components/admin/StaffManagementSidebar';
 
 export default function RecordStaff() {
     const [staff, setStaff] = useState(null);
     const [editing, setEditing] = useState(false);
     const [formData, setFormData] = useState({
-        staff_id: '',
         name: '',
         contact_information: '',
         qualifications: '',
@@ -24,7 +22,6 @@ export default function RecordStaff() {
                 const response = await axios.get(`http://localhost:5000/api/staff/${id}`);
                 setStaff(response.data);
                 setFormData({
-                    staff_id: response.data.staff_id,
                     name: response.data.name,
                     contact_information: response.data.contact_information,
                     qualifications: response.data.qualifications,
@@ -45,7 +42,8 @@ export default function RecordStaff() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            await axios.put(`http://localhost:5000/api/staff/${id}`, formData);
+            // Using PATCH request for partial updates
+            await axios.patch(`http://localhost:5000/api/staff/${id}`, formData);
             alert('Staff updated successfully!');
             setEditing(false);
             navigate('/admin/staff-list');
@@ -54,6 +52,7 @@ export default function RecordStaff() {
             alert('Failed to update staff.');
         }
     };
+    
 
     const deleteStaff = async () => {
         if (window.confirm("Are you sure you want to delete this staff record?")) {
@@ -76,7 +75,6 @@ export default function RecordStaff() {
         <div>
             <AdminNavbar />
             <div className='adminhub-content'>
-                <AdminSidebar />
                 <div className="create-user-container">
                     <div className='create-user-container-top-div'>
                         <h2>Staff Details</h2>
@@ -87,7 +85,6 @@ export default function RecordStaff() {
                             <table className="list-table">
                                 <thead>
                                     <tr>
-                                        <th>ID</th>
                                         <th>Name</th>
                                         <th>Contact Information</th>
                                         <th>Qualifications</th>
@@ -97,7 +94,6 @@ export default function RecordStaff() {
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>{staff.staff_id}</td>
                                         <td>{staff.name}</td>
                                         <td>{staff.contact_information}</td>
                                         <td>{staff.qualifications}</td>
@@ -113,8 +109,6 @@ export default function RecordStaff() {
                         </>
                     ) : (
                         <form onSubmit={handleSubmit} className='create-user-form'>
-                            <label>ID:</label>
-                            <input type="text" name="staff_id" value={formData.staff_id} disabled />
                             <label>Name:</label>
                             <input type="text" name="name" value={formData.name} onChange={handleInputChange} />
                             <label>Contact Information:</label>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import AdminNavbar from '../../../components/admin/AdminNavbar';
 import AdminSidebar from '../../../components/admin/AppointmentManagementSidebar';
-import { Link } from 'react-router-dom';  // Ensure this is needed, if not, remove it
+import { Link } from 'react-router-dom';
 
 export default function AppointmentList() {
   const [appointments, setAppointments] = useState([]);
